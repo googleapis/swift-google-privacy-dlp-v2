@@ -56,7 +56,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_InspectContent")
   public func inspectContent(
     request: InspectContentRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.InspectContentResponse {
+  ) async throws -> GoogleCloudDLPV2.InspectContentResponse {
     try await self.inner.inspectContent(request: request, options: options)
   }
 
@@ -76,7 +76,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_RedactImage")
   public func redactImage(
     request: RedactImageRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.RedactImageResponse {
+  ) async throws -> GoogleCloudDLPV2.RedactImageResponse {
     try await self.inner.redactImage(request: request, options: options)
   }
 
@@ -93,7 +93,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_DeidentifyContent")
   public func deidentifyContent(
     request: DeidentifyContentRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DeidentifyContentResponse {
+  ) async throws -> GoogleCloudDLPV2.DeidentifyContentResponse {
     try await self.inner.deidentifyContent(request: request, options: options)
   }
 
@@ -105,7 +105,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_ReidentifyContent")
   public func reidentifyContent(
     request: ReidentifyContentRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ReidentifyContentResponse {
+  ) async throws -> GoogleCloudDLPV2.ReidentifyContentResponse {
     try await self.inner.reidentifyContent(request: request, options: options)
   }
 
@@ -117,7 +117,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_ListInfoTypes")
   public func listInfoTypes(
     request: ListInfoTypesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListInfoTypesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListInfoTypesResponse {
     try await self.inner.listInfoTypes(request: request, options: options)
   }
 
@@ -130,7 +130,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_CreateInspectTemplate")
   public func createInspectTemplate(
     request: CreateInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.InspectTemplate {
+  ) async throws -> GoogleCloudDLPV2.InspectTemplate {
     try await self.inner.createInspectTemplate(request: request, options: options)
   }
 
@@ -142,7 +142,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_UpdateInspectTemplate")
   public func updateInspectTemplate(
     request: UpdateInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.InspectTemplate {
+  ) async throws -> GoogleCloudDLPV2.InspectTemplate {
     try await self.inner.updateInspectTemplate(request: request, options: options)
   }
 
@@ -154,7 +154,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_GetInspectTemplate")
   public func getInspectTemplate(
     request: GetInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.InspectTemplate {
+  ) async throws -> GoogleCloudDLPV2.InspectTemplate {
     try await self.inner.getInspectTemplate(request: request, options: options)
   }
 
@@ -166,7 +166,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_ListInspectTemplates")
   public func listInspectTemplates(
     request: ListInspectTemplatesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListInspectTemplatesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListInspectTemplatesResponse {
     try await self.inner.listInspectTemplates(request: request, options: options)
   }
 
@@ -180,7 +180,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
     byItem: ListInspectTemplatesRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<InspectTemplate, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListInspectTemplatesResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListInspectTemplatesResponse in
       var request = byItem
       request.pageToken = token
       return try await self.listInspectTemplates(request: request, options: options)
@@ -209,7 +209,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_CreateDeidentifyTemplate")
   public func createDeidentifyTemplate(
     request: CreateDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate {
+  ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate {
     try await self.inner.createDeidentifyTemplate(request: request, options: options)
   }
 
@@ -221,7 +221,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_UpdateDeidentifyTemplate")
   public func updateDeidentifyTemplate(
     request: UpdateDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate {
+  ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate {
     try await self.inner.updateDeidentifyTemplate(request: request, options: options)
   }
 
@@ -233,7 +233,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_GetDeidentifyTemplate")
   public func getDeidentifyTemplate(
     request: GetDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate {
+  ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate {
     try await self.inner.getDeidentifyTemplate(request: request, options: options)
   }
 
@@ -245,7 +245,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_ListDeidentifyTemplates")
   public func listDeidentifyTemplates(
     request: ListDeidentifyTemplatesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListDeidentifyTemplatesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListDeidentifyTemplatesResponse {
     try await self.inner.listDeidentifyTemplates(request: request, options: options)
   }
 
@@ -259,7 +259,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
     byItem: ListDeidentifyTemplatesRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<DeidentifyTemplate, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListDeidentifyTemplatesResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListDeidentifyTemplatesResponse in
       var request = byItem
       request.pageToken = token
       return try await self.listDeidentifyTemplates(request: request, options: options)
@@ -288,7 +288,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_CreateJobTrigger")
   public func createJobTrigger(
     request: CreateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.JobTrigger {
+  ) async throws -> GoogleCloudDLPV2.JobTrigger {
     try await self.inner.createJobTrigger(request: request, options: options)
   }
 
@@ -300,7 +300,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_UpdateJobTrigger")
   public func updateJobTrigger(
     request: UpdateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.JobTrigger {
+  ) async throws -> GoogleCloudDLPV2.JobTrigger {
     try await self.inner.updateJobTrigger(request: request, options: options)
   }
 
@@ -311,7 +311,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_HybridInspectJobTrigger")
   public func hybridInspectJobTrigger(
     request: HybridInspectJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse {
+  ) async throws -> GoogleCloudDLPV2.HybridInspectResponse {
     try await self.inner.hybridInspectJobTrigger(request: request, options: options)
   }
 
@@ -323,7 +323,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_GetJobTrigger")
   public func getJobTrigger(
     request: GetJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.JobTrigger {
+  ) async throws -> GoogleCloudDLPV2.JobTrigger {
     try await self.inner.getJobTrigger(request: request, options: options)
   }
 
@@ -335,7 +335,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_ListJobTriggers")
   public func listJobTriggers(
     request: ListJobTriggersRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListJobTriggersResponse {
+  ) async throws -> GoogleCloudDLPV2.ListJobTriggersResponse {
     try await self.inner.listJobTriggers(request: request, options: options)
   }
 
@@ -349,7 +349,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
     byItem: ListJobTriggersRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<JobTrigger, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListJobTriggersResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListJobTriggersResponse in
       var request = byItem
       request.pageToken = token
       return try await self.listJobTriggers(request: request, options: options)
@@ -375,7 +375,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_ActivateJobTrigger")
   public func activateJobTrigger(
     request: ActivateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DlpJob {
+  ) async throws -> GoogleCloudDLPV2.DlpJob {
     try await self.inner.activateJobTrigger(request: request, options: options)
   }
 
@@ -384,7 +384,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_CreateDiscoveryConfig")
   public func createDiscoveryConfig(
     request: CreateDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig {
+  ) async throws -> GoogleCloudDLPV2.DiscoveryConfig {
     try await self.inner.createDiscoveryConfig(request: request, options: options)
   }
 
@@ -393,7 +393,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_UpdateDiscoveryConfig")
   public func updateDiscoveryConfig(
     request: UpdateDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig {
+  ) async throws -> GoogleCloudDLPV2.DiscoveryConfig {
     try await self.inner.updateDiscoveryConfig(request: request, options: options)
   }
 
@@ -402,7 +402,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_GetDiscoveryConfig")
   public func getDiscoveryConfig(
     request: GetDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig {
+  ) async throws -> GoogleCloudDLPV2.DiscoveryConfig {
     try await self.inner.getDiscoveryConfig(request: request, options: options)
   }
 
@@ -411,7 +411,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_ListDiscoveryConfigs")
   public func listDiscoveryConfigs(
     request: ListDiscoveryConfigsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListDiscoveryConfigsResponse {
+  ) async throws -> GoogleCloudDLPV2.ListDiscoveryConfigsResponse {
     try await self.inner.listDiscoveryConfigs(request: request, options: options)
   }
 
@@ -422,7 +422,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
     byItem: ListDiscoveryConfigsRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<DiscoveryConfig, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListDiscoveryConfigsResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListDiscoveryConfigsResponse in
       var request = byItem
       request.pageToken = token
       return try await self.listDiscoveryConfigs(request: request, options: options)
@@ -453,7 +453,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_CreateDlpJob")
   public func createDlpJob(
     request: CreateDlpJobRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DlpJob {
+  ) async throws -> GoogleCloudDLPV2.DlpJob {
     try await self.inner.createDlpJob(request: request, options: options)
   }
 
@@ -467,7 +467,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_ListDlpJobs")
   public func listDlpJobs(
     request: ListDlpJobsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListDlpJobsResponse {
+  ) async throws -> GoogleCloudDLPV2.ListDlpJobsResponse {
     try await self.inner.listDlpJobs(request: request, options: options)
   }
 
@@ -482,7 +482,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   public func listDlpJobs(
     byItem: ListDlpJobsRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<DlpJob, Swift.Error> {
-    let listRpc = { (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListDlpJobsResponse in
+    let listRpc = { (token: Swift.String) async throws -> GoogleCloudDLPV2.ListDlpJobsResponse in
       var request = byItem
       request.pageToken = token
       return try await self.listDlpJobs(request: request, options: options)
@@ -500,7 +500,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_GetDlpJob")
   public func getDlpJob(
     request: GetDlpJobRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DlpJob {
+  ) async throws -> GoogleCloudDLPV2.DlpJob {
     try await self.inner.getDlpJob(request: request, options: options)
   }
 
@@ -544,7 +544,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_CreateStoredInfoType")
   public func createStoredInfoType(
     request: CreateStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.StoredInfoType {
+  ) async throws -> GoogleCloudDLPV2.StoredInfoType {
     try await self.inner.createStoredInfoType(request: request, options: options)
   }
 
@@ -557,7 +557,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_UpdateStoredInfoType")
   public func updateStoredInfoType(
     request: UpdateStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.StoredInfoType {
+  ) async throws -> GoogleCloudDLPV2.StoredInfoType {
     try await self.inner.updateStoredInfoType(request: request, options: options)
   }
 
@@ -569,7 +569,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_GetStoredInfoType")
   public func getStoredInfoType(
     request: GetStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.StoredInfoType {
+  ) async throws -> GoogleCloudDLPV2.StoredInfoType {
     try await self.inner.getStoredInfoType(request: request, options: options)
   }
 
@@ -581,7 +581,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_ListStoredInfoTypes")
   public func listStoredInfoTypes(
     request: ListStoredInfoTypesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListStoredInfoTypesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListStoredInfoTypesResponse {
     try await self.inner.listStoredInfoTypes(request: request, options: options)
   }
 
@@ -595,7 +595,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
     byItem: ListStoredInfoTypesRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<StoredInfoType, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListStoredInfoTypesResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListStoredInfoTypesResponse in
       var request = byItem
       request.pageToken = token
       return try await self.listStoredInfoTypes(request: request, options: options)
@@ -620,7 +620,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_ListProjectDataProfiles")
   public func listProjectDataProfiles(
     request: ListProjectDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListProjectDataProfilesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListProjectDataProfilesResponse {
     try await self.inner.listProjectDataProfiles(request: request, options: options)
   }
 
@@ -631,7 +631,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
     byItem: ListProjectDataProfilesRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<ProjectDataProfile, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListProjectDataProfilesResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListProjectDataProfilesResponse in
       var request = byItem
       request.pageToken = token
       return try await self.listProjectDataProfiles(request: request, options: options)
@@ -644,7 +644,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_ListTableDataProfiles")
   public func listTableDataProfiles(
     request: ListTableDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListTableDataProfilesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListTableDataProfilesResponse {
     try await self.inner.listTableDataProfiles(request: request, options: options)
   }
 
@@ -655,7 +655,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
     byItem: ListTableDataProfilesRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<TableDataProfile, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListTableDataProfilesResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListTableDataProfilesResponse in
       var request = byItem
       request.pageToken = token
       return try await self.listTableDataProfiles(request: request, options: options)
@@ -668,7 +668,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_ListColumnDataProfiles")
   public func listColumnDataProfiles(
     request: ListColumnDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListColumnDataProfilesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListColumnDataProfilesResponse {
     try await self.inner.listColumnDataProfiles(request: request, options: options)
   }
 
@@ -679,7 +679,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
     byItem: ListColumnDataProfilesRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<ColumnDataProfile, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListColumnDataProfilesResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListColumnDataProfilesResponse in
       var request = byItem
       request.pageToken = token
       return try await self.listColumnDataProfiles(request: request, options: options)
@@ -692,7 +692,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_GetProjectDataProfile")
   public func getProjectDataProfile(
     request: GetProjectDataProfileRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ProjectDataProfile {
+  ) async throws -> GoogleCloudDLPV2.ProjectDataProfile {
     try await self.inner.getProjectDataProfile(request: request, options: options)
   }
 
@@ -701,7 +701,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_ListFileStoreDataProfiles")
   public func listFileStoreDataProfiles(
     request: ListFileStoreDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListFileStoreDataProfilesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListFileStoreDataProfilesResponse {
     try await self.inner.listFileStoreDataProfiles(request: request, options: options)
   }
 
@@ -712,7 +712,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
     byItem: ListFileStoreDataProfilesRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<FileStoreDataProfile, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListFileStoreDataProfilesResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListFileStoreDataProfilesResponse in
       var request = byItem
       request.pageToken = token
       return try await self.listFileStoreDataProfiles(request: request, options: options)
@@ -725,7 +725,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_GetFileStoreDataProfile")
   public func getFileStoreDataProfile(
     request: GetFileStoreDataProfileRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.FileStoreDataProfile {
+  ) async throws -> GoogleCloudDLPV2.FileStoreDataProfile {
     try await self.inner.getFileStoreDataProfile(request: request, options: options)
   }
 
@@ -744,7 +744,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_GetTableDataProfile")
   public func getTableDataProfile(
     request: GetTableDataProfileRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.TableDataProfile {
+  ) async throws -> GoogleCloudDLPV2.TableDataProfile {
     try await self.inner.getTableDataProfile(request: request, options: options)
   }
 
@@ -753,7 +753,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_GetColumnDataProfile")
   public func getColumnDataProfile(
     request: GetColumnDataProfileRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ColumnDataProfile {
+  ) async throws -> GoogleCloudDLPV2.ColumnDataProfile {
     try await self.inner.getColumnDataProfile(request: request, options: options)
   }
 
@@ -774,7 +774,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_HybridInspectDlpJob")
   public func hybridInspectDlpJob(
     request: HybridInspectDlpJobRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse {
+  ) async throws -> GoogleCloudDLPV2.HybridInspectResponse {
     try await self.inner.hybridInspectDlpJob(request: request, options: options)
   }
 
@@ -793,7 +793,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_CreateConnection")
   public func createConnection(
     request: CreateConnectionRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.Connection {
+  ) async throws -> GoogleCloudDLPV2.Connection {
     try await self.inner.createConnection(request: request, options: options)
   }
 
@@ -802,7 +802,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_GetConnection")
   public func getConnection(
     request: GetConnectionRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.Connection {
+  ) async throws -> GoogleCloudDLPV2.Connection {
     try await self.inner.getConnection(request: request, options: options)
   }
 
@@ -812,7 +812,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_ListConnections")
   public func listConnections(
     request: ListConnectionsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListConnectionsResponse {
+  ) async throws -> GoogleCloudDLPV2.ListConnectionsResponse {
     try await self.inner.listConnections(request: request, options: options)
   }
 
@@ -824,7 +824,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
     byItem: ListConnectionsRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<Connection, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListConnectionsResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListConnectionsResponse in
       var request = byItem
       request.pageToken = token
       return try await self.listConnections(request: request, options: options)
@@ -837,7 +837,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_SearchConnections")
   public func searchConnections(
     request: SearchConnectionsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.SearchConnectionsResponse {
+  ) async throws -> GoogleCloudDLPV2.SearchConnectionsResponse {
     try await self.inner.searchConnections(request: request, options: options)
   }
 
@@ -848,7 +848,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
     byItem: SearchConnectionsRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<Connection, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.SearchConnectionsResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.SearchConnectionsResponse in
       var request = byItem
       request.pageToken = token
       return try await self.searchConnections(request: request, options: options)
@@ -870,7 +870,7 @@ public class DlpServiceClient: Clients.DlpServiceProtocol {
   /// @Snippet(path: "DlpService_UpdateConnection")
   public func updateConnection(
     request: UpdateConnectionRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.Connection {
+  ) async throws -> GoogleCloudDLPV2.Connection {
     try await self.inner.updateConnection(request: request, options: options)
   }
 }
@@ -884,62 +884,62 @@ extension Clients {
   public protocol DlpServiceProtocol {
     /// See `DlpServiceClient.inspectContent`.
     func inspectContent(request: InspectContentRequest) async throws
-      -> GooglePrivacyDlpV2.InspectContentResponse
+      -> GoogleCloudDLPV2.InspectContentResponse
 
     /// See `DlpServiceClient.redactImage`.
     func redactImage(request: RedactImageRequest) async throws
-      -> GooglePrivacyDlpV2.RedactImageResponse
+      -> GoogleCloudDLPV2.RedactImageResponse
 
     /// See `DlpServiceClient.deidentifyContent`.
     func deidentifyContent(request: DeidentifyContentRequest) async throws
-      -> GooglePrivacyDlpV2.DeidentifyContentResponse
+      -> GoogleCloudDLPV2.DeidentifyContentResponse
 
     /// See `DlpServiceClient.reidentifyContent`.
     func reidentifyContent(request: ReidentifyContentRequest) async throws
-      -> GooglePrivacyDlpV2.ReidentifyContentResponse
+      -> GoogleCloudDLPV2.ReidentifyContentResponse
 
     /// See `DlpServiceClient.listInfoTypes`.
     func listInfoTypes(request: ListInfoTypesRequest) async throws
-      -> GooglePrivacyDlpV2.ListInfoTypesResponse
+      -> GoogleCloudDLPV2.ListInfoTypesResponse
 
     /// See `DlpServiceClient.listInfoTypes`.
     func listInfoTypes(
       parent: Swift.String,
-    ) async throws -> GooglePrivacyDlpV2.ListInfoTypesResponse
+    ) async throws -> GoogleCloudDLPV2.ListInfoTypesResponse
 
     /// See `DlpServiceClient.createInspectTemplate`.
     func createInspectTemplate(request: CreateInspectTemplateRequest) async throws
-      -> GooglePrivacyDlpV2.InspectTemplate
+      -> GoogleCloudDLPV2.InspectTemplate
 
     /// See `DlpServiceClient.createInspectTemplate`.
     func createInspectTemplate(
       parent: Swift.String,
       inspectTemplate: InspectTemplate?,
-    ) async throws -> GooglePrivacyDlpV2.InspectTemplate
+    ) async throws -> GoogleCloudDLPV2.InspectTemplate
 
     /// See `DlpServiceClient.updateInspectTemplate`.
     func updateInspectTemplate(request: UpdateInspectTemplateRequest) async throws
-      -> GooglePrivacyDlpV2.InspectTemplate
+      -> GoogleCloudDLPV2.InspectTemplate
 
     /// See `DlpServiceClient.updateInspectTemplate`.
     func updateInspectTemplate(
       name: Swift.String,
       inspectTemplate: InspectTemplate?,
       updateMask: GoogleCloudWkt.FieldMask?,
-    ) async throws -> GooglePrivacyDlpV2.InspectTemplate
+    ) async throws -> GoogleCloudDLPV2.InspectTemplate
 
     /// See `DlpServiceClient.getInspectTemplate`.
     func getInspectTemplate(request: GetInspectTemplateRequest) async throws
-      -> GooglePrivacyDlpV2.InspectTemplate
+      -> GoogleCloudDLPV2.InspectTemplate
 
     /// See `DlpServiceClient.getInspectTemplate`.
     func getInspectTemplate(
       name: Swift.String,
-    ) async throws -> GooglePrivacyDlpV2.InspectTemplate
+    ) async throws -> GoogleCloudDLPV2.InspectTemplate
 
     /// See `DlpServiceClient.listInspectTemplates`.
     func listInspectTemplates(request: ListInspectTemplatesRequest) async throws
-      -> GooglePrivacyDlpV2.ListInspectTemplatesResponse
+      -> GoogleCloudDLPV2.ListInspectTemplatesResponse
 
     /// See `DlpServiceClient.listInspectTemplates`.
     func listInspectTemplates(
@@ -961,37 +961,37 @@ extension Clients {
 
     /// See `DlpServiceClient.createDeidentifyTemplate`.
     func createDeidentifyTemplate(request: CreateDeidentifyTemplateRequest) async throws
-      -> GooglePrivacyDlpV2.DeidentifyTemplate
+      -> GoogleCloudDLPV2.DeidentifyTemplate
 
     /// See `DlpServiceClient.createDeidentifyTemplate`.
     func createDeidentifyTemplate(
       parent: Swift.String,
       deidentifyTemplate: DeidentifyTemplate?,
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate
+    ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate
 
     /// See `DlpServiceClient.updateDeidentifyTemplate`.
     func updateDeidentifyTemplate(request: UpdateDeidentifyTemplateRequest) async throws
-      -> GooglePrivacyDlpV2.DeidentifyTemplate
+      -> GoogleCloudDLPV2.DeidentifyTemplate
 
     /// See `DlpServiceClient.updateDeidentifyTemplate`.
     func updateDeidentifyTemplate(
       name: Swift.String,
       deidentifyTemplate: DeidentifyTemplate?,
       updateMask: GoogleCloudWkt.FieldMask?,
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate
+    ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate
 
     /// See `DlpServiceClient.getDeidentifyTemplate`.
     func getDeidentifyTemplate(request: GetDeidentifyTemplateRequest) async throws
-      -> GooglePrivacyDlpV2.DeidentifyTemplate
+      -> GoogleCloudDLPV2.DeidentifyTemplate
 
     /// See `DlpServiceClient.getDeidentifyTemplate`.
     func getDeidentifyTemplate(
       name: Swift.String,
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate
+    ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate
 
     /// See `DlpServiceClient.listDeidentifyTemplates`.
     func listDeidentifyTemplates(request: ListDeidentifyTemplatesRequest) async throws
-      -> GooglePrivacyDlpV2.ListDeidentifyTemplatesResponse
+      -> GoogleCloudDLPV2.ListDeidentifyTemplatesResponse
 
     /// See `DlpServiceClient.listDeidentifyTemplates`.
     func listDeidentifyTemplates(
@@ -1013,45 +1013,45 @@ extension Clients {
 
     /// See `DlpServiceClient.createJobTrigger`.
     func createJobTrigger(request: CreateJobTriggerRequest) async throws
-      -> GooglePrivacyDlpV2.JobTrigger
+      -> GoogleCloudDLPV2.JobTrigger
 
     /// See `DlpServiceClient.createJobTrigger`.
     func createJobTrigger(
       parent: Swift.String,
       jobTrigger: JobTrigger?,
-    ) async throws -> GooglePrivacyDlpV2.JobTrigger
+    ) async throws -> GoogleCloudDLPV2.JobTrigger
 
     /// See `DlpServiceClient.updateJobTrigger`.
     func updateJobTrigger(request: UpdateJobTriggerRequest) async throws
-      -> GooglePrivacyDlpV2.JobTrigger
+      -> GoogleCloudDLPV2.JobTrigger
 
     /// See `DlpServiceClient.updateJobTrigger`.
     func updateJobTrigger(
       name: Swift.String,
       jobTrigger: JobTrigger?,
       updateMask: GoogleCloudWkt.FieldMask?,
-    ) async throws -> GooglePrivacyDlpV2.JobTrigger
+    ) async throws -> GoogleCloudDLPV2.JobTrigger
 
     /// See `DlpServiceClient.hybridInspectJobTrigger`.
     func hybridInspectJobTrigger(request: HybridInspectJobTriggerRequest) async throws
-      -> GooglePrivacyDlpV2.HybridInspectResponse
+      -> GoogleCloudDLPV2.HybridInspectResponse
 
     /// See `DlpServiceClient.hybridInspectJobTrigger`.
     func hybridInspectJobTrigger(
       name: Swift.String,
-    ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse
+    ) async throws -> GoogleCloudDLPV2.HybridInspectResponse
 
     /// See `DlpServiceClient.getJobTrigger`.
-    func getJobTrigger(request: GetJobTriggerRequest) async throws -> GooglePrivacyDlpV2.JobTrigger
+    func getJobTrigger(request: GetJobTriggerRequest) async throws -> GoogleCloudDLPV2.JobTrigger
 
     /// See `DlpServiceClient.getJobTrigger`.
     func getJobTrigger(
       name: Swift.String,
-    ) async throws -> GooglePrivacyDlpV2.JobTrigger
+    ) async throws -> GoogleCloudDLPV2.JobTrigger
 
     /// See `DlpServiceClient.listJobTriggers`.
     func listJobTriggers(request: ListJobTriggersRequest) async throws
-      -> GooglePrivacyDlpV2.ListJobTriggersResponse
+      -> GoogleCloudDLPV2.ListJobTriggersResponse
 
     /// See `DlpServiceClient.listJobTriggers`.
     func listJobTriggers(
@@ -1073,41 +1073,41 @@ extension Clients {
 
     /// See `DlpServiceClient.activateJobTrigger`.
     func activateJobTrigger(request: ActivateJobTriggerRequest) async throws
-      -> GooglePrivacyDlpV2.DlpJob
+      -> GoogleCloudDLPV2.DlpJob
 
     /// See `DlpServiceClient.createDiscoveryConfig`.
     func createDiscoveryConfig(request: CreateDiscoveryConfigRequest) async throws
-      -> GooglePrivacyDlpV2.DiscoveryConfig
+      -> GoogleCloudDLPV2.DiscoveryConfig
 
     /// See `DlpServiceClient.createDiscoveryConfig`.
     func createDiscoveryConfig(
       parent: Swift.String,
       discoveryConfig: DiscoveryConfig?,
-    ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig
+    ) async throws -> GoogleCloudDLPV2.DiscoveryConfig
 
     /// See `DlpServiceClient.updateDiscoveryConfig`.
     func updateDiscoveryConfig(request: UpdateDiscoveryConfigRequest) async throws
-      -> GooglePrivacyDlpV2.DiscoveryConfig
+      -> GoogleCloudDLPV2.DiscoveryConfig
 
     /// See `DlpServiceClient.updateDiscoveryConfig`.
     func updateDiscoveryConfig(
       name: Swift.String,
       discoveryConfig: DiscoveryConfig?,
       updateMask: GoogleCloudWkt.FieldMask?,
-    ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig
+    ) async throws -> GoogleCloudDLPV2.DiscoveryConfig
 
     /// See `DlpServiceClient.getDiscoveryConfig`.
     func getDiscoveryConfig(request: GetDiscoveryConfigRequest) async throws
-      -> GooglePrivacyDlpV2.DiscoveryConfig
+      -> GoogleCloudDLPV2.DiscoveryConfig
 
     /// See `DlpServiceClient.getDiscoveryConfig`.
     func getDiscoveryConfig(
       name: Swift.String,
-    ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig
+    ) async throws -> GoogleCloudDLPV2.DiscoveryConfig
 
     /// See `DlpServiceClient.listDiscoveryConfigs`.
     func listDiscoveryConfigs(request: ListDiscoveryConfigsRequest) async throws
-      -> GooglePrivacyDlpV2.ListDiscoveryConfigsResponse
+      -> GoogleCloudDLPV2.ListDiscoveryConfigsResponse
 
     /// See `DlpServiceClient.listDiscoveryConfigs`.
     func listDiscoveryConfigs(
@@ -1128,23 +1128,23 @@ extension Clients {
     ) async throws
 
     /// See `DlpServiceClient.createDlpJob`.
-    func createDlpJob(request: CreateDlpJobRequest) async throws -> GooglePrivacyDlpV2.DlpJob
+    func createDlpJob(request: CreateDlpJobRequest) async throws -> GoogleCloudDLPV2.DlpJob
 
     /// See `DlpServiceClient.createDlpJob`.
     func createDlpJob(
       parent: Swift.String,
       inspectJob: InspectJobConfig?,
-    ) async throws -> GooglePrivacyDlpV2.DlpJob
+    ) async throws -> GoogleCloudDLPV2.DlpJob
 
     /// See `DlpServiceClient.createDlpJob`.
     func createDlpJob(
       parent: Swift.String,
       riskJob: RiskAnalysisJobConfig?,
-    ) async throws -> GooglePrivacyDlpV2.DlpJob
+    ) async throws -> GoogleCloudDLPV2.DlpJob
 
     /// See `DlpServiceClient.listDlpJobs`.
     func listDlpJobs(request: ListDlpJobsRequest) async throws
-      -> GooglePrivacyDlpV2.ListDlpJobsResponse
+      -> GoogleCloudDLPV2.ListDlpJobsResponse
 
     /// See `DlpServiceClient.listDlpJobs`.
     func listDlpJobs(
@@ -1157,12 +1157,12 @@ extension Clients {
     ) throws -> any AsyncSequence<DlpJob, Swift.Error>
 
     /// See `DlpServiceClient.getDlpJob`.
-    func getDlpJob(request: GetDlpJobRequest) async throws -> GooglePrivacyDlpV2.DlpJob
+    func getDlpJob(request: GetDlpJobRequest) async throws -> GoogleCloudDLPV2.DlpJob
 
     /// See `DlpServiceClient.getDlpJob`.
     func getDlpJob(
       name: Swift.String,
-    ) async throws -> GooglePrivacyDlpV2.DlpJob
+    ) async throws -> GoogleCloudDLPV2.DlpJob
 
     /// See `DlpServiceClient.deleteDlpJob`.
     func deleteDlpJob(request: DeleteDlpJobRequest) async throws
@@ -1177,37 +1177,37 @@ extension Clients {
 
     /// See `DlpServiceClient.createStoredInfoType`.
     func createStoredInfoType(request: CreateStoredInfoTypeRequest) async throws
-      -> GooglePrivacyDlpV2.StoredInfoType
+      -> GoogleCloudDLPV2.StoredInfoType
 
     /// See `DlpServiceClient.createStoredInfoType`.
     func createStoredInfoType(
       parent: Swift.String,
       config: StoredInfoTypeConfig?,
-    ) async throws -> GooglePrivacyDlpV2.StoredInfoType
+    ) async throws -> GoogleCloudDLPV2.StoredInfoType
 
     /// See `DlpServiceClient.updateStoredInfoType`.
     func updateStoredInfoType(request: UpdateStoredInfoTypeRequest) async throws
-      -> GooglePrivacyDlpV2.StoredInfoType
+      -> GoogleCloudDLPV2.StoredInfoType
 
     /// See `DlpServiceClient.updateStoredInfoType`.
     func updateStoredInfoType(
       name: Swift.String,
       config: StoredInfoTypeConfig?,
       updateMask: GoogleCloudWkt.FieldMask?,
-    ) async throws -> GooglePrivacyDlpV2.StoredInfoType
+    ) async throws -> GoogleCloudDLPV2.StoredInfoType
 
     /// See `DlpServiceClient.getStoredInfoType`.
     func getStoredInfoType(request: GetStoredInfoTypeRequest) async throws
-      -> GooglePrivacyDlpV2.StoredInfoType
+      -> GoogleCloudDLPV2.StoredInfoType
 
     /// See `DlpServiceClient.getStoredInfoType`.
     func getStoredInfoType(
       name: Swift.String,
-    ) async throws -> GooglePrivacyDlpV2.StoredInfoType
+    ) async throws -> GoogleCloudDLPV2.StoredInfoType
 
     /// See `DlpServiceClient.listStoredInfoTypes`.
     func listStoredInfoTypes(request: ListStoredInfoTypesRequest) async throws
-      -> GooglePrivacyDlpV2.ListStoredInfoTypesResponse
+      -> GoogleCloudDLPV2.ListStoredInfoTypesResponse
 
     /// See `DlpServiceClient.listStoredInfoTypes`.
     func listStoredInfoTypes(
@@ -1229,7 +1229,7 @@ extension Clients {
 
     /// See `DlpServiceClient.listProjectDataProfiles`.
     func listProjectDataProfiles(request: ListProjectDataProfilesRequest) async throws
-      -> GooglePrivacyDlpV2.ListProjectDataProfilesResponse
+      -> GoogleCloudDLPV2.ListProjectDataProfilesResponse
 
     /// See `DlpServiceClient.listProjectDataProfiles`.
     func listProjectDataProfiles(
@@ -1243,7 +1243,7 @@ extension Clients {
 
     /// See `DlpServiceClient.listTableDataProfiles`.
     func listTableDataProfiles(request: ListTableDataProfilesRequest) async throws
-      -> GooglePrivacyDlpV2.ListTableDataProfilesResponse
+      -> GoogleCloudDLPV2.ListTableDataProfilesResponse
 
     /// See `DlpServiceClient.listTableDataProfiles`.
     func listTableDataProfiles(
@@ -1257,7 +1257,7 @@ extension Clients {
 
     /// See `DlpServiceClient.listColumnDataProfiles`.
     func listColumnDataProfiles(request: ListColumnDataProfilesRequest) async throws
-      -> GooglePrivacyDlpV2.ListColumnDataProfilesResponse
+      -> GoogleCloudDLPV2.ListColumnDataProfilesResponse
 
     /// See `DlpServiceClient.listColumnDataProfiles`.
     func listColumnDataProfiles(
@@ -1271,16 +1271,16 @@ extension Clients {
 
     /// See `DlpServiceClient.getProjectDataProfile`.
     func getProjectDataProfile(request: GetProjectDataProfileRequest) async throws
-      -> GooglePrivacyDlpV2.ProjectDataProfile
+      -> GoogleCloudDLPV2.ProjectDataProfile
 
     /// See `DlpServiceClient.getProjectDataProfile`.
     func getProjectDataProfile(
       name: Swift.String,
-    ) async throws -> GooglePrivacyDlpV2.ProjectDataProfile
+    ) async throws -> GoogleCloudDLPV2.ProjectDataProfile
 
     /// See `DlpServiceClient.listFileStoreDataProfiles`.
     func listFileStoreDataProfiles(request: ListFileStoreDataProfilesRequest) async throws
-      -> GooglePrivacyDlpV2.ListFileStoreDataProfilesResponse
+      -> GoogleCloudDLPV2.ListFileStoreDataProfilesResponse
 
     /// See `DlpServiceClient.listFileStoreDataProfiles`.
     func listFileStoreDataProfiles(
@@ -1294,12 +1294,12 @@ extension Clients {
 
     /// See `DlpServiceClient.getFileStoreDataProfile`.
     func getFileStoreDataProfile(request: GetFileStoreDataProfileRequest) async throws
-      -> GooglePrivacyDlpV2.FileStoreDataProfile
+      -> GoogleCloudDLPV2.FileStoreDataProfile
 
     /// See `DlpServiceClient.getFileStoreDataProfile`.
     func getFileStoreDataProfile(
       name: Swift.String,
-    ) async throws -> GooglePrivacyDlpV2.FileStoreDataProfile
+    ) async throws -> GoogleCloudDLPV2.FileStoreDataProfile
 
     /// See `DlpServiceClient.deleteFileStoreDataProfile`.
     func deleteFileStoreDataProfile(request: DeleteFileStoreDataProfileRequest) async throws
@@ -1311,21 +1311,21 @@ extension Clients {
 
     /// See `DlpServiceClient.getTableDataProfile`.
     func getTableDataProfile(request: GetTableDataProfileRequest) async throws
-      -> GooglePrivacyDlpV2.TableDataProfile
+      -> GoogleCloudDLPV2.TableDataProfile
 
     /// See `DlpServiceClient.getTableDataProfile`.
     func getTableDataProfile(
       name: Swift.String,
-    ) async throws -> GooglePrivacyDlpV2.TableDataProfile
+    ) async throws -> GoogleCloudDLPV2.TableDataProfile
 
     /// See `DlpServiceClient.getColumnDataProfile`.
     func getColumnDataProfile(request: GetColumnDataProfileRequest) async throws
-      -> GooglePrivacyDlpV2.ColumnDataProfile
+      -> GoogleCloudDLPV2.ColumnDataProfile
 
     /// See `DlpServiceClient.getColumnDataProfile`.
     func getColumnDataProfile(
       name: Swift.String,
-    ) async throws -> GooglePrivacyDlpV2.ColumnDataProfile
+    ) async throws -> GoogleCloudDLPV2.ColumnDataProfile
 
     /// See `DlpServiceClient.deleteTableDataProfile`.
     func deleteTableDataProfile(request: DeleteTableDataProfileRequest) async throws
@@ -1337,37 +1337,37 @@ extension Clients {
 
     /// See `DlpServiceClient.hybridInspectDlpJob`.
     func hybridInspectDlpJob(request: HybridInspectDlpJobRequest) async throws
-      -> GooglePrivacyDlpV2.HybridInspectResponse
+      -> GoogleCloudDLPV2.HybridInspectResponse
 
     /// See `DlpServiceClient.hybridInspectDlpJob`.
     func hybridInspectDlpJob(
       name: Swift.String,
-    ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse
+    ) async throws -> GoogleCloudDLPV2.HybridInspectResponse
 
     /// See `DlpServiceClient.finishDlpJob`.
     func finishDlpJob(request: FinishDlpJobRequest) async throws
 
     /// See `DlpServiceClient.createConnection`.
     func createConnection(request: CreateConnectionRequest) async throws
-      -> GooglePrivacyDlpV2.Connection
+      -> GoogleCloudDLPV2.Connection
 
     /// See `DlpServiceClient.createConnection`.
     func createConnection(
       parent: Swift.String,
       connection: Connection?,
-    ) async throws -> GooglePrivacyDlpV2.Connection
+    ) async throws -> GoogleCloudDLPV2.Connection
 
     /// See `DlpServiceClient.getConnection`.
-    func getConnection(request: GetConnectionRequest) async throws -> GooglePrivacyDlpV2.Connection
+    func getConnection(request: GetConnectionRequest) async throws -> GoogleCloudDLPV2.Connection
 
     /// See `DlpServiceClient.getConnection`.
     func getConnection(
       name: Swift.String,
-    ) async throws -> GooglePrivacyDlpV2.Connection
+    ) async throws -> GoogleCloudDLPV2.Connection
 
     /// See `DlpServiceClient.listConnections`.
     func listConnections(request: ListConnectionsRequest) async throws
-      -> GooglePrivacyDlpV2.ListConnectionsResponse
+      -> GoogleCloudDLPV2.ListConnectionsResponse
 
     /// See `DlpServiceClient.listConnections`.
     func listConnections(
@@ -1381,7 +1381,7 @@ extension Clients {
 
     /// See `DlpServiceClient.searchConnections`.
     func searchConnections(request: SearchConnectionsRequest) async throws
-      -> GooglePrivacyDlpV2.SearchConnectionsResponse
+      -> GoogleCloudDLPV2.SearchConnectionsResponse
 
     /// See `DlpServiceClient.searchConnections`.
     func searchConnections(
@@ -1403,57 +1403,57 @@ extension Clients {
 
     /// See `DlpServiceClient.updateConnection`.
     func updateConnection(request: UpdateConnectionRequest) async throws
-      -> GooglePrivacyDlpV2.Connection
+      -> GoogleCloudDLPV2.Connection
 
     /// See `DlpServiceClient.updateConnection`.
     func updateConnection(
       name: Swift.String,
-    ) async throws -> GooglePrivacyDlpV2.Connection
+    ) async throws -> GoogleCloudDLPV2.Connection
 
     /// See `DlpServiceClient.inspectContent`.
     func inspectContent(
       request: InspectContentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectContentResponse
+    ) async throws -> GoogleCloudDLPV2.InspectContentResponse
 
     /// See `DlpServiceClient.redactImage`.
     func redactImage(
       request: RedactImageRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.RedactImageResponse
+    ) async throws -> GoogleCloudDLPV2.RedactImageResponse
 
     /// See `DlpServiceClient.deidentifyContent`.
     func deidentifyContent(
       request: DeidentifyContentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyContentResponse
+    ) async throws -> GoogleCloudDLPV2.DeidentifyContentResponse
 
     /// See `DlpServiceClient.reidentifyContent`.
     func reidentifyContent(
       request: ReidentifyContentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ReidentifyContentResponse
+    ) async throws -> GoogleCloudDLPV2.ReidentifyContentResponse
 
     /// See `DlpServiceClient.listInfoTypes`.
     func listInfoTypes(
       request: ListInfoTypesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListInfoTypesResponse
+    ) async throws -> GoogleCloudDLPV2.ListInfoTypesResponse
 
     /// See `DlpServiceClient.createInspectTemplate`.
     func createInspectTemplate(
       request: CreateInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectTemplate
+    ) async throws -> GoogleCloudDLPV2.InspectTemplate
 
     /// See `DlpServiceClient.updateInspectTemplate`.
     func updateInspectTemplate(
       request: UpdateInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectTemplate
+    ) async throws -> GoogleCloudDLPV2.InspectTemplate
 
     /// See `DlpServiceClient.getInspectTemplate`.
     func getInspectTemplate(
       request: GetInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectTemplate
+    ) async throws -> GoogleCloudDLPV2.InspectTemplate
 
     /// See `DlpServiceClient.listInspectTemplates`.
     func listInspectTemplates(
       request: ListInspectTemplatesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListInspectTemplatesResponse
+    ) async throws -> GoogleCloudDLPV2.ListInspectTemplatesResponse
 
     /// See `DlpServiceClient.listInspectTemplates`.
     func listInspectTemplates(
@@ -1468,22 +1468,22 @@ extension Clients {
     /// See `DlpServiceClient.createDeidentifyTemplate`.
     func createDeidentifyTemplate(
       request: CreateDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate
+    ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate
 
     /// See `DlpServiceClient.updateDeidentifyTemplate`.
     func updateDeidentifyTemplate(
       request: UpdateDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate
+    ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate
 
     /// See `DlpServiceClient.getDeidentifyTemplate`.
     func getDeidentifyTemplate(
       request: GetDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate
+    ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate
 
     /// See `DlpServiceClient.listDeidentifyTemplates`.
     func listDeidentifyTemplates(
       request: ListDeidentifyTemplatesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListDeidentifyTemplatesResponse
+    ) async throws -> GoogleCloudDLPV2.ListDeidentifyTemplatesResponse
 
     /// See `DlpServiceClient.listDeidentifyTemplates`.
     func listDeidentifyTemplates(
@@ -1498,27 +1498,27 @@ extension Clients {
     /// See `DlpServiceClient.createJobTrigger`.
     func createJobTrigger(
       request: CreateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.JobTrigger
+    ) async throws -> GoogleCloudDLPV2.JobTrigger
 
     /// See `DlpServiceClient.updateJobTrigger`.
     func updateJobTrigger(
       request: UpdateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.JobTrigger
+    ) async throws -> GoogleCloudDLPV2.JobTrigger
 
     /// See `DlpServiceClient.hybridInspectJobTrigger`.
     func hybridInspectJobTrigger(
       request: HybridInspectJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse
+    ) async throws -> GoogleCloudDLPV2.HybridInspectResponse
 
     /// See `DlpServiceClient.getJobTrigger`.
     func getJobTrigger(
       request: GetJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.JobTrigger
+    ) async throws -> GoogleCloudDLPV2.JobTrigger
 
     /// See `DlpServiceClient.listJobTriggers`.
     func listJobTriggers(
       request: ListJobTriggersRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListJobTriggersResponse
+    ) async throws -> GoogleCloudDLPV2.ListJobTriggersResponse
 
     /// See `DlpServiceClient.listJobTriggers`.
     func listJobTriggers(
@@ -1533,27 +1533,27 @@ extension Clients {
     /// See `DlpServiceClient.activateJobTrigger`.
     func activateJobTrigger(
       request: ActivateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DlpJob
+    ) async throws -> GoogleCloudDLPV2.DlpJob
 
     /// See `DlpServiceClient.createDiscoveryConfig`.
     func createDiscoveryConfig(
       request: CreateDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig
+    ) async throws -> GoogleCloudDLPV2.DiscoveryConfig
 
     /// See `DlpServiceClient.updateDiscoveryConfig`.
     func updateDiscoveryConfig(
       request: UpdateDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig
+    ) async throws -> GoogleCloudDLPV2.DiscoveryConfig
 
     /// See `DlpServiceClient.getDiscoveryConfig`.
     func getDiscoveryConfig(
       request: GetDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig
+    ) async throws -> GoogleCloudDLPV2.DiscoveryConfig
 
     /// See `DlpServiceClient.listDiscoveryConfigs`.
     func listDiscoveryConfigs(
       request: ListDiscoveryConfigsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListDiscoveryConfigsResponse
+    ) async throws -> GoogleCloudDLPV2.ListDiscoveryConfigsResponse
 
     /// See `DlpServiceClient.listDiscoveryConfigs`.
     func listDiscoveryConfigs(
@@ -1568,12 +1568,12 @@ extension Clients {
     /// See `DlpServiceClient.createDlpJob`.
     func createDlpJob(
       request: CreateDlpJobRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DlpJob
+    ) async throws -> GoogleCloudDLPV2.DlpJob
 
     /// See `DlpServiceClient.listDlpJobs`.
     func listDlpJobs(
       request: ListDlpJobsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListDlpJobsResponse
+    ) async throws -> GoogleCloudDLPV2.ListDlpJobsResponse
 
     /// See `DlpServiceClient.listDlpJobs`.
     func listDlpJobs(
@@ -1583,7 +1583,7 @@ extension Clients {
     /// See `DlpServiceClient.getDlpJob`.
     func getDlpJob(
       request: GetDlpJobRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DlpJob
+    ) async throws -> GoogleCloudDLPV2.DlpJob
 
     /// See `DlpServiceClient.deleteDlpJob`.
     func deleteDlpJob(
@@ -1598,22 +1598,22 @@ extension Clients {
     /// See `DlpServiceClient.createStoredInfoType`.
     func createStoredInfoType(
       request: CreateStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.StoredInfoType
+    ) async throws -> GoogleCloudDLPV2.StoredInfoType
 
     /// See `DlpServiceClient.updateStoredInfoType`.
     func updateStoredInfoType(
       request: UpdateStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.StoredInfoType
+    ) async throws -> GoogleCloudDLPV2.StoredInfoType
 
     /// See `DlpServiceClient.getStoredInfoType`.
     func getStoredInfoType(
       request: GetStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.StoredInfoType
+    ) async throws -> GoogleCloudDLPV2.StoredInfoType
 
     /// See `DlpServiceClient.listStoredInfoTypes`.
     func listStoredInfoTypes(
       request: ListStoredInfoTypesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListStoredInfoTypesResponse
+    ) async throws -> GoogleCloudDLPV2.ListStoredInfoTypesResponse
 
     /// See `DlpServiceClient.listStoredInfoTypes`.
     func listStoredInfoTypes(
@@ -1628,7 +1628,7 @@ extension Clients {
     /// See `DlpServiceClient.listProjectDataProfiles`.
     func listProjectDataProfiles(
       request: ListProjectDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListProjectDataProfilesResponse
+    ) async throws -> GoogleCloudDLPV2.ListProjectDataProfilesResponse
 
     /// See `DlpServiceClient.listProjectDataProfiles`.
     func listProjectDataProfiles(
@@ -1638,7 +1638,7 @@ extension Clients {
     /// See `DlpServiceClient.listTableDataProfiles`.
     func listTableDataProfiles(
       request: ListTableDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListTableDataProfilesResponse
+    ) async throws -> GoogleCloudDLPV2.ListTableDataProfilesResponse
 
     /// See `DlpServiceClient.listTableDataProfiles`.
     func listTableDataProfiles(
@@ -1648,7 +1648,7 @@ extension Clients {
     /// See `DlpServiceClient.listColumnDataProfiles`.
     func listColumnDataProfiles(
       request: ListColumnDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListColumnDataProfilesResponse
+    ) async throws -> GoogleCloudDLPV2.ListColumnDataProfilesResponse
 
     /// See `DlpServiceClient.listColumnDataProfiles`.
     func listColumnDataProfiles(
@@ -1658,12 +1658,12 @@ extension Clients {
     /// See `DlpServiceClient.getProjectDataProfile`.
     func getProjectDataProfile(
       request: GetProjectDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ProjectDataProfile
+    ) async throws -> GoogleCloudDLPV2.ProjectDataProfile
 
     /// See `DlpServiceClient.listFileStoreDataProfiles`.
     func listFileStoreDataProfiles(
       request: ListFileStoreDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListFileStoreDataProfilesResponse
+    ) async throws -> GoogleCloudDLPV2.ListFileStoreDataProfilesResponse
 
     /// See `DlpServiceClient.listFileStoreDataProfiles`.
     func listFileStoreDataProfiles(
@@ -1673,7 +1673,7 @@ extension Clients {
     /// See `DlpServiceClient.getFileStoreDataProfile`.
     func getFileStoreDataProfile(
       request: GetFileStoreDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.FileStoreDataProfile
+    ) async throws -> GoogleCloudDLPV2.FileStoreDataProfile
 
     /// See `DlpServiceClient.deleteFileStoreDataProfile`.
     func deleteFileStoreDataProfile(
@@ -1683,12 +1683,12 @@ extension Clients {
     /// See `DlpServiceClient.getTableDataProfile`.
     func getTableDataProfile(
       request: GetTableDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.TableDataProfile
+    ) async throws -> GoogleCloudDLPV2.TableDataProfile
 
     /// See `DlpServiceClient.getColumnDataProfile`.
     func getColumnDataProfile(
       request: GetColumnDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ColumnDataProfile
+    ) async throws -> GoogleCloudDLPV2.ColumnDataProfile
 
     /// See `DlpServiceClient.deleteTableDataProfile`.
     func deleteTableDataProfile(
@@ -1698,7 +1698,7 @@ extension Clients {
     /// See `DlpServiceClient.hybridInspectDlpJob`.
     func hybridInspectDlpJob(
       request: HybridInspectDlpJobRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse
+    ) async throws -> GoogleCloudDLPV2.HybridInspectResponse
 
     /// See `DlpServiceClient.finishDlpJob`.
     func finishDlpJob(
@@ -1708,17 +1708,17 @@ extension Clients {
     /// See `DlpServiceClient.createConnection`.
     func createConnection(
       request: CreateConnectionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.Connection
+    ) async throws -> GoogleCloudDLPV2.Connection
 
     /// See `DlpServiceClient.getConnection`.
     func getConnection(
       request: GetConnectionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.Connection
+    ) async throws -> GoogleCloudDLPV2.Connection
 
     /// See `DlpServiceClient.listConnections`.
     func listConnections(
       request: ListConnectionsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListConnectionsResponse
+    ) async throws -> GoogleCloudDLPV2.ListConnectionsResponse
 
     /// See `DlpServiceClient.listConnections`.
     func listConnections(
@@ -1728,7 +1728,7 @@ extension Clients {
     /// See `DlpServiceClient.searchConnections`.
     func searchConnections(
       request: SearchConnectionsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.SearchConnectionsResponse
+    ) async throws -> GoogleCloudDLPV2.SearchConnectionsResponse
 
     /// See `DlpServiceClient.searchConnections`.
     func searchConnections(
@@ -1743,75 +1743,75 @@ extension Clients {
     /// See `DlpServiceClient.updateConnection`.
     func updateConnection(
       request: UpdateConnectionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.Connection
+    ) async throws -> GoogleCloudDLPV2.Connection
   }
 }
 
 // Default implementations
 extension Clients.DlpServiceProtocol {
   public func inspectContent(request: InspectContentRequest) async throws
-    -> GooglePrivacyDlpV2.InspectContentResponse
+    -> GoogleCloudDLPV2.InspectContentResponse
   {
     try await self.inspectContent(request: request, options: .init())
   }
 
   public func inspectContent(
     request: InspectContentRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.InspectContentResponse {
+  ) async throws -> GoogleCloudDLPV2.InspectContentResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func redactImage(request: RedactImageRequest) async throws
-    -> GooglePrivacyDlpV2.RedactImageResponse
+    -> GoogleCloudDLPV2.RedactImageResponse
   {
     try await self.redactImage(request: request, options: .init())
   }
 
   public func redactImage(
     request: RedactImageRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.RedactImageResponse {
+  ) async throws -> GoogleCloudDLPV2.RedactImageResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func deidentifyContent(request: DeidentifyContentRequest) async throws
-    -> GooglePrivacyDlpV2.DeidentifyContentResponse
+    -> GoogleCloudDLPV2.DeidentifyContentResponse
   {
     try await self.deidentifyContent(request: request, options: .init())
   }
 
   public func deidentifyContent(
     request: DeidentifyContentRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DeidentifyContentResponse {
+  ) async throws -> GoogleCloudDLPV2.DeidentifyContentResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func reidentifyContent(request: ReidentifyContentRequest) async throws
-    -> GooglePrivacyDlpV2.ReidentifyContentResponse
+    -> GoogleCloudDLPV2.ReidentifyContentResponse
   {
     try await self.reidentifyContent(request: request, options: .init())
   }
 
   public func reidentifyContent(
     request: ReidentifyContentRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ReidentifyContentResponse {
+  ) async throws -> GoogleCloudDLPV2.ReidentifyContentResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func listInfoTypes(request: ListInfoTypesRequest) async throws
-    -> GooglePrivacyDlpV2.ListInfoTypesResponse
+    -> GoogleCloudDLPV2.ListInfoTypesResponse
   {
     try await self.listInfoTypes(request: request, options: .init())
   }
 
   public func listInfoTypes(
     request: ListInfoTypesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListInfoTypesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListInfoTypesResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func listInfoTypes(
     parent: Swift.String,
-  ) async throws -> GooglePrivacyDlpV2.ListInfoTypesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListInfoTypesResponse {
     let request = ListInfoTypesRequest().with {
       $0.parent = parent
     }
@@ -1819,21 +1819,21 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func createInspectTemplate(request: CreateInspectTemplateRequest) async throws
-    -> GooglePrivacyDlpV2.InspectTemplate
+    -> GoogleCloudDLPV2.InspectTemplate
   {
     try await self.createInspectTemplate(request: request, options: .init())
   }
 
   public func createInspectTemplate(
     request: CreateInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.InspectTemplate {
+  ) async throws -> GoogleCloudDLPV2.InspectTemplate {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func createInspectTemplate(
     parent: Swift.String,
     inspectTemplate: InspectTemplate?,
-  ) async throws -> GooglePrivacyDlpV2.InspectTemplate {
+  ) async throws -> GoogleCloudDLPV2.InspectTemplate {
     let request = CreateInspectTemplateRequest().with {
       $0.parent = parent
       $0.inspectTemplate = inspectTemplate
@@ -1842,14 +1842,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func updateInspectTemplate(request: UpdateInspectTemplateRequest) async throws
-    -> GooglePrivacyDlpV2.InspectTemplate
+    -> GoogleCloudDLPV2.InspectTemplate
   {
     try await self.updateInspectTemplate(request: request, options: .init())
   }
 
   public func updateInspectTemplate(
     request: UpdateInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.InspectTemplate {
+  ) async throws -> GoogleCloudDLPV2.InspectTemplate {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -1857,7 +1857,7 @@ extension Clients.DlpServiceProtocol {
     name: Swift.String,
     inspectTemplate: InspectTemplate?,
     updateMask: GoogleCloudWkt.FieldMask?,
-  ) async throws -> GooglePrivacyDlpV2.InspectTemplate {
+  ) async throws -> GoogleCloudDLPV2.InspectTemplate {
     let request = UpdateInspectTemplateRequest().with {
       $0.name = name
       $0.inspectTemplate = inspectTemplate
@@ -1867,20 +1867,20 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func getInspectTemplate(request: GetInspectTemplateRequest) async throws
-    -> GooglePrivacyDlpV2.InspectTemplate
+    -> GoogleCloudDLPV2.InspectTemplate
   {
     try await self.getInspectTemplate(request: request, options: .init())
   }
 
   public func getInspectTemplate(
     request: GetInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.InspectTemplate {
+  ) async throws -> GoogleCloudDLPV2.InspectTemplate {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func getInspectTemplate(
     name: Swift.String,
-  ) async throws -> GooglePrivacyDlpV2.InspectTemplate {
+  ) async throws -> GoogleCloudDLPV2.InspectTemplate {
     let request = GetInspectTemplateRequest().with {
       $0.name = name
     }
@@ -1888,14 +1888,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func listInspectTemplates(request: ListInspectTemplatesRequest) async throws
-    -> GooglePrivacyDlpV2.ListInspectTemplatesResponse
+    -> GoogleCloudDLPV2.ListInspectTemplatesResponse
   {
     try await self.listInspectTemplates(request: request, options: .init())
   }
 
   public func listInspectTemplates(
     request: ListInspectTemplatesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListInspectTemplatesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListInspectTemplatesResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -1909,7 +1909,7 @@ extension Clients.DlpServiceProtocol {
     byItem: ListInspectTemplatesRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<InspectTemplate, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListInspectTemplatesResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListInspectTemplatesResponse in
       throw GoogleCloudGax.RequestError.unimplemented
     }
     return GoogleCloudGax.PaginatedResponseSequence(listRpc: listRpc)
@@ -1944,21 +1944,21 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func createDeidentifyTemplate(request: CreateDeidentifyTemplateRequest) async throws
-    -> GooglePrivacyDlpV2.DeidentifyTemplate
+    -> GoogleCloudDLPV2.DeidentifyTemplate
   {
     try await self.createDeidentifyTemplate(request: request, options: .init())
   }
 
   public func createDeidentifyTemplate(
     request: CreateDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate {
+  ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func createDeidentifyTemplate(
     parent: Swift.String,
     deidentifyTemplate: DeidentifyTemplate?,
-  ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate {
+  ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate {
     let request = CreateDeidentifyTemplateRequest().with {
       $0.parent = parent
       $0.deidentifyTemplate = deidentifyTemplate
@@ -1967,14 +1967,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func updateDeidentifyTemplate(request: UpdateDeidentifyTemplateRequest) async throws
-    -> GooglePrivacyDlpV2.DeidentifyTemplate
+    -> GoogleCloudDLPV2.DeidentifyTemplate
   {
     try await self.updateDeidentifyTemplate(request: request, options: .init())
   }
 
   public func updateDeidentifyTemplate(
     request: UpdateDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate {
+  ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -1982,7 +1982,7 @@ extension Clients.DlpServiceProtocol {
     name: Swift.String,
     deidentifyTemplate: DeidentifyTemplate?,
     updateMask: GoogleCloudWkt.FieldMask?,
-  ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate {
+  ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate {
     let request = UpdateDeidentifyTemplateRequest().with {
       $0.name = name
       $0.deidentifyTemplate = deidentifyTemplate
@@ -1992,20 +1992,20 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func getDeidentifyTemplate(request: GetDeidentifyTemplateRequest) async throws
-    -> GooglePrivacyDlpV2.DeidentifyTemplate
+    -> GoogleCloudDLPV2.DeidentifyTemplate
   {
     try await self.getDeidentifyTemplate(request: request, options: .init())
   }
 
   public func getDeidentifyTemplate(
     request: GetDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate {
+  ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func getDeidentifyTemplate(
     name: Swift.String,
-  ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate {
+  ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate {
     let request = GetDeidentifyTemplateRequest().with {
       $0.name = name
     }
@@ -2013,14 +2013,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func listDeidentifyTemplates(request: ListDeidentifyTemplatesRequest) async throws
-    -> GooglePrivacyDlpV2.ListDeidentifyTemplatesResponse
+    -> GoogleCloudDLPV2.ListDeidentifyTemplatesResponse
   {
     try await self.listDeidentifyTemplates(request: request, options: .init())
   }
 
   public func listDeidentifyTemplates(
     request: ListDeidentifyTemplatesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListDeidentifyTemplatesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListDeidentifyTemplatesResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -2034,7 +2034,7 @@ extension Clients.DlpServiceProtocol {
     byItem: ListDeidentifyTemplatesRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<DeidentifyTemplate, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListDeidentifyTemplatesResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListDeidentifyTemplatesResponse in
       throw GoogleCloudGax.RequestError.unimplemented
     }
     return GoogleCloudGax.PaginatedResponseSequence(listRpc: listRpc)
@@ -2069,21 +2069,21 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func createJobTrigger(request: CreateJobTriggerRequest) async throws
-    -> GooglePrivacyDlpV2.JobTrigger
+    -> GoogleCloudDLPV2.JobTrigger
   {
     try await self.createJobTrigger(request: request, options: .init())
   }
 
   public func createJobTrigger(
     request: CreateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.JobTrigger {
+  ) async throws -> GoogleCloudDLPV2.JobTrigger {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func createJobTrigger(
     parent: Swift.String,
     jobTrigger: JobTrigger?,
-  ) async throws -> GooglePrivacyDlpV2.JobTrigger {
+  ) async throws -> GoogleCloudDLPV2.JobTrigger {
     let request = CreateJobTriggerRequest().with {
       $0.parent = parent
       $0.jobTrigger = jobTrigger
@@ -2092,14 +2092,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func updateJobTrigger(request: UpdateJobTriggerRequest) async throws
-    -> GooglePrivacyDlpV2.JobTrigger
+    -> GoogleCloudDLPV2.JobTrigger
   {
     try await self.updateJobTrigger(request: request, options: .init())
   }
 
   public func updateJobTrigger(
     request: UpdateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.JobTrigger {
+  ) async throws -> GoogleCloudDLPV2.JobTrigger {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -2107,7 +2107,7 @@ extension Clients.DlpServiceProtocol {
     name: Swift.String,
     jobTrigger: JobTrigger?,
     updateMask: GoogleCloudWkt.FieldMask?,
-  ) async throws -> GooglePrivacyDlpV2.JobTrigger {
+  ) async throws -> GoogleCloudDLPV2.JobTrigger {
     let request = UpdateJobTriggerRequest().with {
       $0.name = name
       $0.jobTrigger = jobTrigger
@@ -2117,20 +2117,20 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func hybridInspectJobTrigger(request: HybridInspectJobTriggerRequest) async throws
-    -> GooglePrivacyDlpV2.HybridInspectResponse
+    -> GoogleCloudDLPV2.HybridInspectResponse
   {
     try await self.hybridInspectJobTrigger(request: request, options: .init())
   }
 
   public func hybridInspectJobTrigger(
     request: HybridInspectJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse {
+  ) async throws -> GoogleCloudDLPV2.HybridInspectResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func hybridInspectJobTrigger(
     name: Swift.String,
-  ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse {
+  ) async throws -> GoogleCloudDLPV2.HybridInspectResponse {
     let request = HybridInspectJobTriggerRequest().with {
       $0.name = name
     }
@@ -2138,20 +2138,20 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func getJobTrigger(request: GetJobTriggerRequest) async throws
-    -> GooglePrivacyDlpV2.JobTrigger
+    -> GoogleCloudDLPV2.JobTrigger
   {
     try await self.getJobTrigger(request: request, options: .init())
   }
 
   public func getJobTrigger(
     request: GetJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.JobTrigger {
+  ) async throws -> GoogleCloudDLPV2.JobTrigger {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func getJobTrigger(
     name: Swift.String,
-  ) async throws -> GooglePrivacyDlpV2.JobTrigger {
+  ) async throws -> GoogleCloudDLPV2.JobTrigger {
     let request = GetJobTriggerRequest().with {
       $0.name = name
     }
@@ -2159,14 +2159,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func listJobTriggers(request: ListJobTriggersRequest) async throws
-    -> GooglePrivacyDlpV2.ListJobTriggersResponse
+    -> GoogleCloudDLPV2.ListJobTriggersResponse
   {
     try await self.listJobTriggers(request: request, options: .init())
   }
 
   public func listJobTriggers(
     request: ListJobTriggersRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListJobTriggersResponse {
+  ) async throws -> GoogleCloudDLPV2.ListJobTriggersResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -2180,7 +2180,7 @@ extension Clients.DlpServiceProtocol {
     byItem: ListJobTriggersRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<JobTrigger, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListJobTriggersResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListJobTriggersResponse in
       throw GoogleCloudGax.RequestError.unimplemented
     }
     return GoogleCloudGax.PaginatedResponseSequence(listRpc: listRpc)
@@ -2215,33 +2215,33 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func activateJobTrigger(request: ActivateJobTriggerRequest) async throws
-    -> GooglePrivacyDlpV2.DlpJob
+    -> GoogleCloudDLPV2.DlpJob
   {
     try await self.activateJobTrigger(request: request, options: .init())
   }
 
   public func activateJobTrigger(
     request: ActivateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DlpJob {
+  ) async throws -> GoogleCloudDLPV2.DlpJob {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func createDiscoveryConfig(request: CreateDiscoveryConfigRequest) async throws
-    -> GooglePrivacyDlpV2.DiscoveryConfig
+    -> GoogleCloudDLPV2.DiscoveryConfig
   {
     try await self.createDiscoveryConfig(request: request, options: .init())
   }
 
   public func createDiscoveryConfig(
     request: CreateDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig {
+  ) async throws -> GoogleCloudDLPV2.DiscoveryConfig {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func createDiscoveryConfig(
     parent: Swift.String,
     discoveryConfig: DiscoveryConfig?,
-  ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig {
+  ) async throws -> GoogleCloudDLPV2.DiscoveryConfig {
     let request = CreateDiscoveryConfigRequest().with {
       $0.parent = parent
       $0.discoveryConfig = discoveryConfig
@@ -2250,14 +2250,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func updateDiscoveryConfig(request: UpdateDiscoveryConfigRequest) async throws
-    -> GooglePrivacyDlpV2.DiscoveryConfig
+    -> GoogleCloudDLPV2.DiscoveryConfig
   {
     try await self.updateDiscoveryConfig(request: request, options: .init())
   }
 
   public func updateDiscoveryConfig(
     request: UpdateDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig {
+  ) async throws -> GoogleCloudDLPV2.DiscoveryConfig {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -2265,7 +2265,7 @@ extension Clients.DlpServiceProtocol {
     name: Swift.String,
     discoveryConfig: DiscoveryConfig?,
     updateMask: GoogleCloudWkt.FieldMask?,
-  ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig {
+  ) async throws -> GoogleCloudDLPV2.DiscoveryConfig {
     let request = UpdateDiscoveryConfigRequest().with {
       $0.name = name
       $0.discoveryConfig = discoveryConfig
@@ -2275,20 +2275,20 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func getDiscoveryConfig(request: GetDiscoveryConfigRequest) async throws
-    -> GooglePrivacyDlpV2.DiscoveryConfig
+    -> GoogleCloudDLPV2.DiscoveryConfig
   {
     try await self.getDiscoveryConfig(request: request, options: .init())
   }
 
   public func getDiscoveryConfig(
     request: GetDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig {
+  ) async throws -> GoogleCloudDLPV2.DiscoveryConfig {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func getDiscoveryConfig(
     name: Swift.String,
-  ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig {
+  ) async throws -> GoogleCloudDLPV2.DiscoveryConfig {
     let request = GetDiscoveryConfigRequest().with {
       $0.name = name
     }
@@ -2296,14 +2296,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func listDiscoveryConfigs(request: ListDiscoveryConfigsRequest) async throws
-    -> GooglePrivacyDlpV2.ListDiscoveryConfigsResponse
+    -> GoogleCloudDLPV2.ListDiscoveryConfigsResponse
   {
     try await self.listDiscoveryConfigs(request: request, options: .init())
   }
 
   public func listDiscoveryConfigs(
     request: ListDiscoveryConfigsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListDiscoveryConfigsResponse {
+  ) async throws -> GoogleCloudDLPV2.ListDiscoveryConfigsResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -2317,7 +2317,7 @@ extension Clients.DlpServiceProtocol {
     byItem: ListDiscoveryConfigsRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<DiscoveryConfig, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListDiscoveryConfigsResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListDiscoveryConfigsResponse in
       throw GoogleCloudGax.RequestError.unimplemented
     }
     return GoogleCloudGax.PaginatedResponseSequence(listRpc: listRpc)
@@ -2351,20 +2351,20 @@ extension Clients.DlpServiceProtocol {
     try await self.deleteDiscoveryConfig(request: request)
   }
 
-  public func createDlpJob(request: CreateDlpJobRequest) async throws -> GooglePrivacyDlpV2.DlpJob {
+  public func createDlpJob(request: CreateDlpJobRequest) async throws -> GoogleCloudDLPV2.DlpJob {
     try await self.createDlpJob(request: request, options: .init())
   }
 
   public func createDlpJob(
     request: CreateDlpJobRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DlpJob {
+  ) async throws -> GoogleCloudDLPV2.DlpJob {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func createDlpJob(
     parent: Swift.String,
     inspectJob: InspectJobConfig?,
-  ) async throws -> GooglePrivacyDlpV2.DlpJob {
+  ) async throws -> GoogleCloudDLPV2.DlpJob {
     let request = CreateDlpJobRequest().with {
       $0.parent = parent
       $0.job = inspectJob.map { .inspectJob($0) }
@@ -2375,7 +2375,7 @@ extension Clients.DlpServiceProtocol {
   public func createDlpJob(
     parent: Swift.String,
     riskJob: RiskAnalysisJobConfig?,
-  ) async throws -> GooglePrivacyDlpV2.DlpJob {
+  ) async throws -> GoogleCloudDLPV2.DlpJob {
     let request = CreateDlpJobRequest().with {
       $0.parent = parent
       $0.job = riskJob.map { .riskJob($0) }
@@ -2384,14 +2384,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func listDlpJobs(request: ListDlpJobsRequest) async throws
-    -> GooglePrivacyDlpV2.ListDlpJobsResponse
+    -> GoogleCloudDLPV2.ListDlpJobsResponse
   {
     try await self.listDlpJobs(request: request, options: .init())
   }
 
   public func listDlpJobs(
     request: ListDlpJobsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListDlpJobsResponse {
+  ) async throws -> GoogleCloudDLPV2.ListDlpJobsResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -2404,7 +2404,7 @@ extension Clients.DlpServiceProtocol {
   public func listDlpJobs(
     byItem: ListDlpJobsRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<DlpJob, Swift.Error> {
-    let listRpc = { (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListDlpJobsResponse in
+    let listRpc = { (token: Swift.String) async throws -> GoogleCloudDLPV2.ListDlpJobsResponse in
       throw GoogleCloudGax.RequestError.unimplemented
     }
     return GoogleCloudGax.PaginatedResponseSequence(listRpc: listRpc)
@@ -2419,19 +2419,19 @@ extension Clients.DlpServiceProtocol {
     return try self.listDlpJobs(byItem: request)
   }
 
-  public func getDlpJob(request: GetDlpJobRequest) async throws -> GooglePrivacyDlpV2.DlpJob {
+  public func getDlpJob(request: GetDlpJobRequest) async throws -> GoogleCloudDLPV2.DlpJob {
     try await self.getDlpJob(request: request, options: .init())
   }
 
   public func getDlpJob(
     request: GetDlpJobRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.DlpJob {
+  ) async throws -> GoogleCloudDLPV2.DlpJob {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func getDlpJob(
     name: Swift.String,
-  ) async throws -> GooglePrivacyDlpV2.DlpJob {
+  ) async throws -> GoogleCloudDLPV2.DlpJob {
     let request = GetDlpJobRequest().with {
       $0.name = name
     }
@@ -2468,21 +2468,21 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func createStoredInfoType(request: CreateStoredInfoTypeRequest) async throws
-    -> GooglePrivacyDlpV2.StoredInfoType
+    -> GoogleCloudDLPV2.StoredInfoType
   {
     try await self.createStoredInfoType(request: request, options: .init())
   }
 
   public func createStoredInfoType(
     request: CreateStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.StoredInfoType {
+  ) async throws -> GoogleCloudDLPV2.StoredInfoType {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func createStoredInfoType(
     parent: Swift.String,
     config: StoredInfoTypeConfig?,
-  ) async throws -> GooglePrivacyDlpV2.StoredInfoType {
+  ) async throws -> GoogleCloudDLPV2.StoredInfoType {
     let request = CreateStoredInfoTypeRequest().with {
       $0.parent = parent
       $0.config = config
@@ -2491,14 +2491,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func updateStoredInfoType(request: UpdateStoredInfoTypeRequest) async throws
-    -> GooglePrivacyDlpV2.StoredInfoType
+    -> GoogleCloudDLPV2.StoredInfoType
   {
     try await self.updateStoredInfoType(request: request, options: .init())
   }
 
   public func updateStoredInfoType(
     request: UpdateStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.StoredInfoType {
+  ) async throws -> GoogleCloudDLPV2.StoredInfoType {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -2506,7 +2506,7 @@ extension Clients.DlpServiceProtocol {
     name: Swift.String,
     config: StoredInfoTypeConfig?,
     updateMask: GoogleCloudWkt.FieldMask?,
-  ) async throws -> GooglePrivacyDlpV2.StoredInfoType {
+  ) async throws -> GoogleCloudDLPV2.StoredInfoType {
     let request = UpdateStoredInfoTypeRequest().with {
       $0.name = name
       $0.config = config
@@ -2516,20 +2516,20 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func getStoredInfoType(request: GetStoredInfoTypeRequest) async throws
-    -> GooglePrivacyDlpV2.StoredInfoType
+    -> GoogleCloudDLPV2.StoredInfoType
   {
     try await self.getStoredInfoType(request: request, options: .init())
   }
 
   public func getStoredInfoType(
     request: GetStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.StoredInfoType {
+  ) async throws -> GoogleCloudDLPV2.StoredInfoType {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func getStoredInfoType(
     name: Swift.String,
-  ) async throws -> GooglePrivacyDlpV2.StoredInfoType {
+  ) async throws -> GoogleCloudDLPV2.StoredInfoType {
     let request = GetStoredInfoTypeRequest().with {
       $0.name = name
     }
@@ -2537,14 +2537,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func listStoredInfoTypes(request: ListStoredInfoTypesRequest) async throws
-    -> GooglePrivacyDlpV2.ListStoredInfoTypesResponse
+    -> GoogleCloudDLPV2.ListStoredInfoTypesResponse
   {
     try await self.listStoredInfoTypes(request: request, options: .init())
   }
 
   public func listStoredInfoTypes(
     request: ListStoredInfoTypesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListStoredInfoTypesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListStoredInfoTypesResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -2558,7 +2558,7 @@ extension Clients.DlpServiceProtocol {
     byItem: ListStoredInfoTypesRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<StoredInfoType, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListStoredInfoTypesResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListStoredInfoTypesResponse in
       throw GoogleCloudGax.RequestError.unimplemented
     }
     return GoogleCloudGax.PaginatedResponseSequence(listRpc: listRpc)
@@ -2593,14 +2593,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func listProjectDataProfiles(request: ListProjectDataProfilesRequest) async throws
-    -> GooglePrivacyDlpV2.ListProjectDataProfilesResponse
+    -> GoogleCloudDLPV2.ListProjectDataProfilesResponse
   {
     try await self.listProjectDataProfiles(request: request, options: .init())
   }
 
   public func listProjectDataProfiles(
     request: ListProjectDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListProjectDataProfilesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListProjectDataProfilesResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -2614,7 +2614,7 @@ extension Clients.DlpServiceProtocol {
     byItem: ListProjectDataProfilesRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<ProjectDataProfile, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListProjectDataProfilesResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListProjectDataProfilesResponse in
       throw GoogleCloudGax.RequestError.unimplemented
     }
     return GoogleCloudGax.PaginatedResponseSequence(listRpc: listRpc)
@@ -2630,14 +2630,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func listTableDataProfiles(request: ListTableDataProfilesRequest) async throws
-    -> GooglePrivacyDlpV2.ListTableDataProfilesResponse
+    -> GoogleCloudDLPV2.ListTableDataProfilesResponse
   {
     try await self.listTableDataProfiles(request: request, options: .init())
   }
 
   public func listTableDataProfiles(
     request: ListTableDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListTableDataProfilesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListTableDataProfilesResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -2651,7 +2651,7 @@ extension Clients.DlpServiceProtocol {
     byItem: ListTableDataProfilesRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<TableDataProfile, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListTableDataProfilesResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListTableDataProfilesResponse in
       throw GoogleCloudGax.RequestError.unimplemented
     }
     return GoogleCloudGax.PaginatedResponseSequence(listRpc: listRpc)
@@ -2667,14 +2667,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func listColumnDataProfiles(request: ListColumnDataProfilesRequest) async throws
-    -> GooglePrivacyDlpV2.ListColumnDataProfilesResponse
+    -> GoogleCloudDLPV2.ListColumnDataProfilesResponse
   {
     try await self.listColumnDataProfiles(request: request, options: .init())
   }
 
   public func listColumnDataProfiles(
     request: ListColumnDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListColumnDataProfilesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListColumnDataProfilesResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -2688,7 +2688,7 @@ extension Clients.DlpServiceProtocol {
     byItem: ListColumnDataProfilesRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<ColumnDataProfile, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListColumnDataProfilesResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListColumnDataProfilesResponse in
       throw GoogleCloudGax.RequestError.unimplemented
     }
     return GoogleCloudGax.PaginatedResponseSequence(listRpc: listRpc)
@@ -2704,20 +2704,20 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func getProjectDataProfile(request: GetProjectDataProfileRequest) async throws
-    -> GooglePrivacyDlpV2.ProjectDataProfile
+    -> GoogleCloudDLPV2.ProjectDataProfile
   {
     try await self.getProjectDataProfile(request: request, options: .init())
   }
 
   public func getProjectDataProfile(
     request: GetProjectDataProfileRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ProjectDataProfile {
+  ) async throws -> GoogleCloudDLPV2.ProjectDataProfile {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func getProjectDataProfile(
     name: Swift.String,
-  ) async throws -> GooglePrivacyDlpV2.ProjectDataProfile {
+  ) async throws -> GoogleCloudDLPV2.ProjectDataProfile {
     let request = GetProjectDataProfileRequest().with {
       $0.name = name
     }
@@ -2725,14 +2725,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func listFileStoreDataProfiles(request: ListFileStoreDataProfilesRequest) async throws
-    -> GooglePrivacyDlpV2.ListFileStoreDataProfilesResponse
+    -> GoogleCloudDLPV2.ListFileStoreDataProfilesResponse
   {
     try await self.listFileStoreDataProfiles(request: request, options: .init())
   }
 
   public func listFileStoreDataProfiles(
     request: ListFileStoreDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListFileStoreDataProfilesResponse {
+  ) async throws -> GoogleCloudDLPV2.ListFileStoreDataProfilesResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -2746,7 +2746,7 @@ extension Clients.DlpServiceProtocol {
     byItem: ListFileStoreDataProfilesRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<FileStoreDataProfile, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListFileStoreDataProfilesResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListFileStoreDataProfilesResponse in
       throw GoogleCloudGax.RequestError.unimplemented
     }
     return GoogleCloudGax.PaginatedResponseSequence(listRpc: listRpc)
@@ -2762,20 +2762,20 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func getFileStoreDataProfile(request: GetFileStoreDataProfileRequest) async throws
-    -> GooglePrivacyDlpV2.FileStoreDataProfile
+    -> GoogleCloudDLPV2.FileStoreDataProfile
   {
     try await self.getFileStoreDataProfile(request: request, options: .init())
   }
 
   public func getFileStoreDataProfile(
     request: GetFileStoreDataProfileRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.FileStoreDataProfile {
+  ) async throws -> GoogleCloudDLPV2.FileStoreDataProfile {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func getFileStoreDataProfile(
     name: Swift.String,
-  ) async throws -> GooglePrivacyDlpV2.FileStoreDataProfile {
+  ) async throws -> GoogleCloudDLPV2.FileStoreDataProfile {
     let request = GetFileStoreDataProfileRequest().with {
       $0.name = name
     }
@@ -2802,20 +2802,20 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func getTableDataProfile(request: GetTableDataProfileRequest) async throws
-    -> GooglePrivacyDlpV2.TableDataProfile
+    -> GoogleCloudDLPV2.TableDataProfile
   {
     try await self.getTableDataProfile(request: request, options: .init())
   }
 
   public func getTableDataProfile(
     request: GetTableDataProfileRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.TableDataProfile {
+  ) async throws -> GoogleCloudDLPV2.TableDataProfile {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func getTableDataProfile(
     name: Swift.String,
-  ) async throws -> GooglePrivacyDlpV2.TableDataProfile {
+  ) async throws -> GoogleCloudDLPV2.TableDataProfile {
     let request = GetTableDataProfileRequest().with {
       $0.name = name
     }
@@ -2823,20 +2823,20 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func getColumnDataProfile(request: GetColumnDataProfileRequest) async throws
-    -> GooglePrivacyDlpV2.ColumnDataProfile
+    -> GoogleCloudDLPV2.ColumnDataProfile
   {
     try await self.getColumnDataProfile(request: request, options: .init())
   }
 
   public func getColumnDataProfile(
     request: GetColumnDataProfileRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ColumnDataProfile {
+  ) async throws -> GoogleCloudDLPV2.ColumnDataProfile {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func getColumnDataProfile(
     name: Swift.String,
-  ) async throws -> GooglePrivacyDlpV2.ColumnDataProfile {
+  ) async throws -> GoogleCloudDLPV2.ColumnDataProfile {
     let request = GetColumnDataProfileRequest().with {
       $0.name = name
     }
@@ -2863,20 +2863,20 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func hybridInspectDlpJob(request: HybridInspectDlpJobRequest) async throws
-    -> GooglePrivacyDlpV2.HybridInspectResponse
+    -> GoogleCloudDLPV2.HybridInspectResponse
   {
     try await self.hybridInspectDlpJob(request: request, options: .init())
   }
 
   public func hybridInspectDlpJob(
     request: HybridInspectDlpJobRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse {
+  ) async throws -> GoogleCloudDLPV2.HybridInspectResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func hybridInspectDlpJob(
     name: Swift.String,
-  ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse {
+  ) async throws -> GoogleCloudDLPV2.HybridInspectResponse {
     let request = HybridInspectDlpJobRequest().with {
       $0.name = name
     }
@@ -2894,21 +2894,21 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func createConnection(request: CreateConnectionRequest) async throws
-    -> GooglePrivacyDlpV2.Connection
+    -> GoogleCloudDLPV2.Connection
   {
     try await self.createConnection(request: request, options: .init())
   }
 
   public func createConnection(
     request: CreateConnectionRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.Connection {
+  ) async throws -> GoogleCloudDLPV2.Connection {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func createConnection(
     parent: Swift.String,
     connection: Connection?,
-  ) async throws -> GooglePrivacyDlpV2.Connection {
+  ) async throws -> GoogleCloudDLPV2.Connection {
     let request = CreateConnectionRequest().with {
       $0.parent = parent
       $0.connection = connection
@@ -2917,20 +2917,20 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func getConnection(request: GetConnectionRequest) async throws
-    -> GooglePrivacyDlpV2.Connection
+    -> GoogleCloudDLPV2.Connection
   {
     try await self.getConnection(request: request, options: .init())
   }
 
   public func getConnection(
     request: GetConnectionRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.Connection {
+  ) async throws -> GoogleCloudDLPV2.Connection {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func getConnection(
     name: Swift.String,
-  ) async throws -> GooglePrivacyDlpV2.Connection {
+  ) async throws -> GoogleCloudDLPV2.Connection {
     let request = GetConnectionRequest().with {
       $0.name = name
     }
@@ -2938,14 +2938,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func listConnections(request: ListConnectionsRequest) async throws
-    -> GooglePrivacyDlpV2.ListConnectionsResponse
+    -> GoogleCloudDLPV2.ListConnectionsResponse
   {
     try await self.listConnections(request: request, options: .init())
   }
 
   public func listConnections(
     request: ListConnectionsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.ListConnectionsResponse {
+  ) async throws -> GoogleCloudDLPV2.ListConnectionsResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -2959,7 +2959,7 @@ extension Clients.DlpServiceProtocol {
     byItem: ListConnectionsRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<Connection, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.ListConnectionsResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.ListConnectionsResponse in
       throw GoogleCloudGax.RequestError.unimplemented
     }
     return GoogleCloudGax.PaginatedResponseSequence(listRpc: listRpc)
@@ -2975,14 +2975,14 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func searchConnections(request: SearchConnectionsRequest) async throws
-    -> GooglePrivacyDlpV2.SearchConnectionsResponse
+    -> GoogleCloudDLPV2.SearchConnectionsResponse
   {
     try await self.searchConnections(request: request, options: .init())
   }
 
   public func searchConnections(
     request: SearchConnectionsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.SearchConnectionsResponse {
+  ) async throws -> GoogleCloudDLPV2.SearchConnectionsResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -2996,7 +2996,7 @@ extension Clients.DlpServiceProtocol {
     byItem: SearchConnectionsRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<Connection, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GooglePrivacyDlpV2.SearchConnectionsResponse in
+      (token: Swift.String) async throws -> GoogleCloudDLPV2.SearchConnectionsResponse in
       throw GoogleCloudGax.RequestError.unimplemented
     }
     return GoogleCloudGax.PaginatedResponseSequence(listRpc: listRpc)
@@ -3031,20 +3031,20 @@ extension Clients.DlpServiceProtocol {
   }
 
   public func updateConnection(request: UpdateConnectionRequest) async throws
-    -> GooglePrivacyDlpV2.Connection
+    -> GoogleCloudDLPV2.Connection
   {
     try await self.updateConnection(request: request, options: .init())
   }
 
   public func updateConnection(
     request: UpdateConnectionRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GooglePrivacyDlpV2.Connection {
+  ) async throws -> GoogleCloudDLPV2.Connection {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func updateConnection(
     name: Swift.String,
-  ) async throws -> GooglePrivacyDlpV2.Connection {
+  ) async throws -> GoogleCloudDLPV2.Connection {
     let request = UpdateConnectionRequest().with {
       $0.name = name
     }

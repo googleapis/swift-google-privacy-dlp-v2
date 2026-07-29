@@ -20,52 +20,44 @@ import Foundation
 #endif
 import GoogleCloudWkt
 import GoogleCloudGax
-import struct Logging.Logger
 
 extension Clients {
-  final class DlpServiceLogging: DlpServiceStub {
+  final class DlpServiceRetry: DlpServiceStub {
     let inner: any DlpServiceStub
-    let logger: Logger
+    let options: GoogleCloudGax.ClientOptions
 
-    public init(_ inner: any DlpServiceStub, logger: Logger) {
-      var logger = logger
-      logger[metadataKey: "gcp.artifact.id"] = "google-privacy-dlp-v2"
-      logger[metadataKey: "gcp.client.service"] = "dlp"
-      logger[metadataKey: "gcp.experimental.swift.client"] = "DlpService"
+    public init(_ inner: any DlpServiceStub, options: GoogleCloudGax.ClientOptions) {
       self.inner = inner
-      self.logger = logger
+      self.options = options
     }
 
     func _intercept<Input, Output>(
       request: Input,
       options: GoogleCloudGax.RequestOptions,
-      name: Swift.String,
+      idempotent: Swift.Bool,
       action: (Input, GoogleCloudGax.RequestOptions) async throws -> Output,
     ) async throws -> Output {
-      var logger = logger
-      logger[metadataKey: "gcp.experimental.swift.request.id"] = "\(UUID())"
-      logger[metadataKey: "gcp.experimental.swift.method"] = .string(name)
-      logger.debug("enter  : \(request) \(options)")
-      do {
-        let output = try await action(request, options)
-        logger.debug("success: \(request) \(options) \(output)")
-        return output
-      } catch let error {
-        logger.debug("error  : \(request) \(options) \(error)")
-        throw error
+      let loop = GoogleCloudGax._RetryLoop(
+        options: options, withDefault: self.options, idempotent: idempotent,
+      )
+      let attempt = { (attemptTimeout: Swift.Duration?) async throws -> Output in
+        var attemptOptions = options
+        attemptOptions.attemptTimeout = attemptTimeout
+        return try await action(request, attemptOptions)
       }
+      return try await loop.run(attempt: attempt)
     }
 
     public func inspectContent(
       request: InspectContentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectContentResponse {
+    ) async throws -> GoogleCloudDLPV2.InspectContentResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "inspectContent",
+        idempotent: false,
         action: {
           (r: InspectContentRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.InspectContentResponse
+            -> GoogleCloudDLPV2.InspectContentResponse
           in
           return try await self.inner.inspectContent(request: r, options: o)
         })
@@ -73,14 +65,14 @@ extension Clients {
 
     public func redactImage(
       request: RedactImageRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.RedactImageResponse {
+    ) async throws -> GoogleCloudDLPV2.RedactImageResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "redactImage",
+        idempotent: false,
         action: {
           (r: RedactImageRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.RedactImageResponse
+            -> GoogleCloudDLPV2.RedactImageResponse
           in
           return try await self.inner.redactImage(request: r, options: o)
         })
@@ -88,14 +80,14 @@ extension Clients {
 
     public func deidentifyContent(
       request: DeidentifyContentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyContentResponse {
+    ) async throws -> GoogleCloudDLPV2.DeidentifyContentResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "deidentifyContent",
+        idempotent: false,
         action: {
           (r: DeidentifyContentRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.DeidentifyContentResponse
+            -> GoogleCloudDLPV2.DeidentifyContentResponse
           in
           return try await self.inner.deidentifyContent(request: r, options: o)
         })
@@ -103,14 +95,14 @@ extension Clients {
 
     public func reidentifyContent(
       request: ReidentifyContentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ReidentifyContentResponse {
+    ) async throws -> GoogleCloudDLPV2.ReidentifyContentResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "reidentifyContent",
+        idempotent: false,
         action: {
           (r: ReidentifyContentRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.ReidentifyContentResponse
+            -> GoogleCloudDLPV2.ReidentifyContentResponse
           in
           return try await self.inner.reidentifyContent(request: r, options: o)
         })
@@ -118,14 +110,14 @@ extension Clients {
 
     public func listInfoTypes(
       request: ListInfoTypesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListInfoTypesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListInfoTypesResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "listInfoTypes",
+        idempotent: true,
         action: {
           (r: ListInfoTypesRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.ListInfoTypesResponse
+            -> GoogleCloudDLPV2.ListInfoTypesResponse
           in
           return try await self.inner.listInfoTypes(request: r, options: o)
         })
@@ -133,14 +125,14 @@ extension Clients {
 
     public func createInspectTemplate(
       request: CreateInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectTemplate {
+    ) async throws -> GoogleCloudDLPV2.InspectTemplate {
       try await self._intercept(
         request: request,
         options: options,
-        name: "createInspectTemplate",
+        idempotent: false,
         action: {
           (r: CreateInspectTemplateRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.InspectTemplate
+            -> GoogleCloudDLPV2.InspectTemplate
           in
           return try await self.inner.createInspectTemplate(request: r, options: o)
         })
@@ -148,14 +140,14 @@ extension Clients {
 
     public func updateInspectTemplate(
       request: UpdateInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectTemplate {
+    ) async throws -> GoogleCloudDLPV2.InspectTemplate {
       try await self._intercept(
         request: request,
         options: options,
-        name: "updateInspectTemplate",
+        idempotent: false,
         action: {
           (r: UpdateInspectTemplateRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.InspectTemplate
+            -> GoogleCloudDLPV2.InspectTemplate
           in
           return try await self.inner.updateInspectTemplate(request: r, options: o)
         })
@@ -163,14 +155,14 @@ extension Clients {
 
     public func getInspectTemplate(
       request: GetInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectTemplate {
+    ) async throws -> GoogleCloudDLPV2.InspectTemplate {
       try await self._intercept(
         request: request,
         options: options,
-        name: "getInspectTemplate",
+        idempotent: true,
         action: {
           (r: GetInspectTemplateRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.InspectTemplate
+            -> GoogleCloudDLPV2.InspectTemplate
           in
           return try await self.inner.getInspectTemplate(request: r, options: o)
         })
@@ -178,14 +170,14 @@ extension Clients {
 
     public func listInspectTemplates(
       request: ListInspectTemplatesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListInspectTemplatesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListInspectTemplatesResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "listInspectTemplates",
+        idempotent: true,
         action: {
           (r: ListInspectTemplatesRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.ListInspectTemplatesResponse
+            -> GoogleCloudDLPV2.ListInspectTemplatesResponse
           in
           return try await self.inner.listInspectTemplates(request: r, options: o)
         })
@@ -197,7 +189,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        name: "deleteInspectTemplate",
+        idempotent: false,
         action: {
           (r: DeleteInspectTemplateRequest, o: GoogleCloudGax.RequestOptions) async throws -> Void
           in
@@ -207,14 +199,14 @@ extension Clients {
 
     public func createDeidentifyTemplate(
       request: CreateDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate {
+    ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate {
       try await self._intercept(
         request: request,
         options: options,
-        name: "createDeidentifyTemplate",
+        idempotent: false,
         action: {
           (r: CreateDeidentifyTemplateRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.DeidentifyTemplate
+            -> GoogleCloudDLPV2.DeidentifyTemplate
           in
           return try await self.inner.createDeidentifyTemplate(request: r, options: o)
         })
@@ -222,14 +214,14 @@ extension Clients {
 
     public func updateDeidentifyTemplate(
       request: UpdateDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate {
+    ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate {
       try await self._intercept(
         request: request,
         options: options,
-        name: "updateDeidentifyTemplate",
+        idempotent: false,
         action: {
           (r: UpdateDeidentifyTemplateRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.DeidentifyTemplate
+            -> GoogleCloudDLPV2.DeidentifyTemplate
           in
           return try await self.inner.updateDeidentifyTemplate(request: r, options: o)
         })
@@ -237,14 +229,14 @@ extension Clients {
 
     public func getDeidentifyTemplate(
       request: GetDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate {
+    ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate {
       try await self._intercept(
         request: request,
         options: options,
-        name: "getDeidentifyTemplate",
+        idempotent: true,
         action: {
           (r: GetDeidentifyTemplateRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.DeidentifyTemplate
+            -> GoogleCloudDLPV2.DeidentifyTemplate
           in
           return try await self.inner.getDeidentifyTemplate(request: r, options: o)
         })
@@ -252,14 +244,14 @@ extension Clients {
 
     public func listDeidentifyTemplates(
       request: ListDeidentifyTemplatesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListDeidentifyTemplatesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListDeidentifyTemplatesResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "listDeidentifyTemplates",
+        idempotent: true,
         action: {
           (r: ListDeidentifyTemplatesRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.ListDeidentifyTemplatesResponse
+            -> GoogleCloudDLPV2.ListDeidentifyTemplatesResponse
           in
           return try await self.inner.listDeidentifyTemplates(request: r, options: o)
         })
@@ -271,7 +263,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        name: "deleteDeidentifyTemplate",
+        idempotent: false,
         action: {
           (r: DeleteDeidentifyTemplateRequest, o: GoogleCloudGax.RequestOptions) async throws
             -> Void in
@@ -281,14 +273,14 @@ extension Clients {
 
     public func createJobTrigger(
       request: CreateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.JobTrigger {
+    ) async throws -> GoogleCloudDLPV2.JobTrigger {
       try await self._intercept(
         request: request,
         options: options,
-        name: "createJobTrigger",
+        idempotent: false,
         action: {
           (r: CreateJobTriggerRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.JobTrigger
+            -> GoogleCloudDLPV2.JobTrigger
           in
           return try await self.inner.createJobTrigger(request: r, options: o)
         })
@@ -296,14 +288,14 @@ extension Clients {
 
     public func updateJobTrigger(
       request: UpdateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.JobTrigger {
+    ) async throws -> GoogleCloudDLPV2.JobTrigger {
       try await self._intercept(
         request: request,
         options: options,
-        name: "updateJobTrigger",
+        idempotent: false,
         action: {
           (r: UpdateJobTriggerRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.JobTrigger
+            -> GoogleCloudDLPV2.JobTrigger
           in
           return try await self.inner.updateJobTrigger(request: r, options: o)
         })
@@ -311,14 +303,14 @@ extension Clients {
 
     public func hybridInspectJobTrigger(
       request: HybridInspectJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse {
+    ) async throws -> GoogleCloudDLPV2.HybridInspectResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "hybridInspectJobTrigger",
+        idempotent: false,
         action: {
           (r: HybridInspectJobTriggerRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.HybridInspectResponse
+            -> GoogleCloudDLPV2.HybridInspectResponse
           in
           return try await self.inner.hybridInspectJobTrigger(request: r, options: o)
         })
@@ -326,14 +318,14 @@ extension Clients {
 
     public func getJobTrigger(
       request: GetJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.JobTrigger {
+    ) async throws -> GoogleCloudDLPV2.JobTrigger {
       try await self._intercept(
         request: request,
         options: options,
-        name: "getJobTrigger",
+        idempotent: true,
         action: {
           (r: GetJobTriggerRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.JobTrigger
+            -> GoogleCloudDLPV2.JobTrigger
           in
           return try await self.inner.getJobTrigger(request: r, options: o)
         })
@@ -341,14 +333,14 @@ extension Clients {
 
     public func listJobTriggers(
       request: ListJobTriggersRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListJobTriggersResponse {
+    ) async throws -> GoogleCloudDLPV2.ListJobTriggersResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "listJobTriggers",
+        idempotent: true,
         action: {
           (r: ListJobTriggersRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.ListJobTriggersResponse
+            -> GoogleCloudDLPV2.ListJobTriggersResponse
           in
           return try await self.inner.listJobTriggers(request: r, options: o)
         })
@@ -360,7 +352,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        name: "deleteJobTrigger",
+        idempotent: false,
         action: {
           (r: DeleteJobTriggerRequest, o: GoogleCloudGax.RequestOptions) async throws -> Void in
           return try await self.inner.deleteJobTrigger(request: r, options: o)
@@ -369,14 +361,14 @@ extension Clients {
 
     public func activateJobTrigger(
       request: ActivateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DlpJob {
+    ) async throws -> GoogleCloudDLPV2.DlpJob {
       try await self._intercept(
         request: request,
         options: options,
-        name: "activateJobTrigger",
+        idempotent: false,
         action: {
           (r: ActivateJobTriggerRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.DlpJob
+            -> GoogleCloudDLPV2.DlpJob
           in
           return try await self.inner.activateJobTrigger(request: r, options: o)
         })
@@ -384,14 +376,14 @@ extension Clients {
 
     public func createDiscoveryConfig(
       request: CreateDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig {
+    ) async throws -> GoogleCloudDLPV2.DiscoveryConfig {
       try await self._intercept(
         request: request,
         options: options,
-        name: "createDiscoveryConfig",
+        idempotent: false,
         action: {
           (r: CreateDiscoveryConfigRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.DiscoveryConfig
+            -> GoogleCloudDLPV2.DiscoveryConfig
           in
           return try await self.inner.createDiscoveryConfig(request: r, options: o)
         })
@@ -399,14 +391,14 @@ extension Clients {
 
     public func updateDiscoveryConfig(
       request: UpdateDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig {
+    ) async throws -> GoogleCloudDLPV2.DiscoveryConfig {
       try await self._intercept(
         request: request,
         options: options,
-        name: "updateDiscoveryConfig",
+        idempotent: false,
         action: {
           (r: UpdateDiscoveryConfigRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.DiscoveryConfig
+            -> GoogleCloudDLPV2.DiscoveryConfig
           in
           return try await self.inner.updateDiscoveryConfig(request: r, options: o)
         })
@@ -414,14 +406,14 @@ extension Clients {
 
     public func getDiscoveryConfig(
       request: GetDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig {
+    ) async throws -> GoogleCloudDLPV2.DiscoveryConfig {
       try await self._intercept(
         request: request,
         options: options,
-        name: "getDiscoveryConfig",
+        idempotent: true,
         action: {
           (r: GetDiscoveryConfigRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.DiscoveryConfig
+            -> GoogleCloudDLPV2.DiscoveryConfig
           in
           return try await self.inner.getDiscoveryConfig(request: r, options: o)
         })
@@ -429,14 +421,14 @@ extension Clients {
 
     public func listDiscoveryConfigs(
       request: ListDiscoveryConfigsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListDiscoveryConfigsResponse {
+    ) async throws -> GoogleCloudDLPV2.ListDiscoveryConfigsResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "listDiscoveryConfigs",
+        idempotent: true,
         action: {
           (r: ListDiscoveryConfigsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.ListDiscoveryConfigsResponse
+            -> GoogleCloudDLPV2.ListDiscoveryConfigsResponse
           in
           return try await self.inner.listDiscoveryConfigs(request: r, options: o)
         })
@@ -448,7 +440,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        name: "deleteDiscoveryConfig",
+        idempotent: false,
         action: {
           (r: DeleteDiscoveryConfigRequest, o: GoogleCloudGax.RequestOptions) async throws -> Void
           in
@@ -458,14 +450,14 @@ extension Clients {
 
     public func createDlpJob(
       request: CreateDlpJobRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DlpJob {
+    ) async throws -> GoogleCloudDLPV2.DlpJob {
       try await self._intercept(
         request: request,
         options: options,
-        name: "createDlpJob",
+        idempotent: false,
         action: {
           (r: CreateDlpJobRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.DlpJob
+            -> GoogleCloudDLPV2.DlpJob
           in
           return try await self.inner.createDlpJob(request: r, options: o)
         })
@@ -473,14 +465,14 @@ extension Clients {
 
     public func listDlpJobs(
       request: ListDlpJobsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListDlpJobsResponse {
+    ) async throws -> GoogleCloudDLPV2.ListDlpJobsResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "listDlpJobs",
+        idempotent: true,
         action: {
           (r: ListDlpJobsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.ListDlpJobsResponse
+            -> GoogleCloudDLPV2.ListDlpJobsResponse
           in
           return try await self.inner.listDlpJobs(request: r, options: o)
         })
@@ -488,14 +480,14 @@ extension Clients {
 
     public func getDlpJob(
       request: GetDlpJobRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DlpJob {
+    ) async throws -> GoogleCloudDLPV2.DlpJob {
       try await self._intercept(
         request: request,
         options: options,
-        name: "getDlpJob",
+        idempotent: true,
         action: {
           (r: GetDlpJobRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.DlpJob
+            -> GoogleCloudDLPV2.DlpJob
           in
           return try await self.inner.getDlpJob(request: r, options: o)
         })
@@ -507,7 +499,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        name: "deleteDlpJob",
+        idempotent: false,
         action: { (r: DeleteDlpJobRequest, o: GoogleCloudGax.RequestOptions) async throws -> Void in
           return try await self.inner.deleteDlpJob(request: r, options: o)
         })
@@ -519,7 +511,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        name: "cancelDlpJob",
+        idempotent: false,
         action: { (r: CancelDlpJobRequest, o: GoogleCloudGax.RequestOptions) async throws -> Void in
           return try await self.inner.cancelDlpJob(request: r, options: o)
         })
@@ -527,14 +519,14 @@ extension Clients {
 
     public func createStoredInfoType(
       request: CreateStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.StoredInfoType {
+    ) async throws -> GoogleCloudDLPV2.StoredInfoType {
       try await self._intercept(
         request: request,
         options: options,
-        name: "createStoredInfoType",
+        idempotent: false,
         action: {
           (r: CreateStoredInfoTypeRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.StoredInfoType
+            -> GoogleCloudDLPV2.StoredInfoType
           in
           return try await self.inner.createStoredInfoType(request: r, options: o)
         })
@@ -542,14 +534,14 @@ extension Clients {
 
     public func updateStoredInfoType(
       request: UpdateStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.StoredInfoType {
+    ) async throws -> GoogleCloudDLPV2.StoredInfoType {
       try await self._intercept(
         request: request,
         options: options,
-        name: "updateStoredInfoType",
+        idempotent: false,
         action: {
           (r: UpdateStoredInfoTypeRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.StoredInfoType
+            -> GoogleCloudDLPV2.StoredInfoType
           in
           return try await self.inner.updateStoredInfoType(request: r, options: o)
         })
@@ -557,14 +549,14 @@ extension Clients {
 
     public func getStoredInfoType(
       request: GetStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.StoredInfoType {
+    ) async throws -> GoogleCloudDLPV2.StoredInfoType {
       try await self._intercept(
         request: request,
         options: options,
-        name: "getStoredInfoType",
+        idempotent: true,
         action: {
           (r: GetStoredInfoTypeRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.StoredInfoType
+            -> GoogleCloudDLPV2.StoredInfoType
           in
           return try await self.inner.getStoredInfoType(request: r, options: o)
         })
@@ -572,14 +564,14 @@ extension Clients {
 
     public func listStoredInfoTypes(
       request: ListStoredInfoTypesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListStoredInfoTypesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListStoredInfoTypesResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "listStoredInfoTypes",
+        idempotent: true,
         action: {
           (r: ListStoredInfoTypesRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.ListStoredInfoTypesResponse
+            -> GoogleCloudDLPV2.ListStoredInfoTypesResponse
           in
           return try await self.inner.listStoredInfoTypes(request: r, options: o)
         })
@@ -591,7 +583,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        name: "deleteStoredInfoType",
+        idempotent: false,
         action: {
           (r: DeleteStoredInfoTypeRequest, o: GoogleCloudGax.RequestOptions) async throws -> Void in
           return try await self.inner.deleteStoredInfoType(request: r, options: o)
@@ -600,14 +592,14 @@ extension Clients {
 
     public func listProjectDataProfiles(
       request: ListProjectDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListProjectDataProfilesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListProjectDataProfilesResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "listProjectDataProfiles",
+        idempotent: true,
         action: {
           (r: ListProjectDataProfilesRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.ListProjectDataProfilesResponse
+            -> GoogleCloudDLPV2.ListProjectDataProfilesResponse
           in
           return try await self.inner.listProjectDataProfiles(request: r, options: o)
         })
@@ -615,14 +607,14 @@ extension Clients {
 
     public func listTableDataProfiles(
       request: ListTableDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListTableDataProfilesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListTableDataProfilesResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "listTableDataProfiles",
+        idempotent: true,
         action: {
           (r: ListTableDataProfilesRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.ListTableDataProfilesResponse
+            -> GoogleCloudDLPV2.ListTableDataProfilesResponse
           in
           return try await self.inner.listTableDataProfiles(request: r, options: o)
         })
@@ -630,14 +622,14 @@ extension Clients {
 
     public func listColumnDataProfiles(
       request: ListColumnDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListColumnDataProfilesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListColumnDataProfilesResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "listColumnDataProfiles",
+        idempotent: true,
         action: {
           (r: ListColumnDataProfilesRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.ListColumnDataProfilesResponse
+            -> GoogleCloudDLPV2.ListColumnDataProfilesResponse
           in
           return try await self.inner.listColumnDataProfiles(request: r, options: o)
         })
@@ -645,14 +637,14 @@ extension Clients {
 
     public func getProjectDataProfile(
       request: GetProjectDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ProjectDataProfile {
+    ) async throws -> GoogleCloudDLPV2.ProjectDataProfile {
       try await self._intercept(
         request: request,
         options: options,
-        name: "getProjectDataProfile",
+        idempotent: true,
         action: {
           (r: GetProjectDataProfileRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.ProjectDataProfile
+            -> GoogleCloudDLPV2.ProjectDataProfile
           in
           return try await self.inner.getProjectDataProfile(request: r, options: o)
         })
@@ -660,14 +652,14 @@ extension Clients {
 
     public func listFileStoreDataProfiles(
       request: ListFileStoreDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListFileStoreDataProfilesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListFileStoreDataProfilesResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "listFileStoreDataProfiles",
+        idempotent: true,
         action: {
           (r: ListFileStoreDataProfilesRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.ListFileStoreDataProfilesResponse
+            -> GoogleCloudDLPV2.ListFileStoreDataProfilesResponse
           in
           return try await self.inner.listFileStoreDataProfiles(request: r, options: o)
         })
@@ -675,14 +667,14 @@ extension Clients {
 
     public func getFileStoreDataProfile(
       request: GetFileStoreDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.FileStoreDataProfile {
+    ) async throws -> GoogleCloudDLPV2.FileStoreDataProfile {
       try await self._intercept(
         request: request,
         options: options,
-        name: "getFileStoreDataProfile",
+        idempotent: true,
         action: {
           (r: GetFileStoreDataProfileRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.FileStoreDataProfile
+            -> GoogleCloudDLPV2.FileStoreDataProfile
           in
           return try await self.inner.getFileStoreDataProfile(request: r, options: o)
         })
@@ -694,7 +686,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        name: "deleteFileStoreDataProfile",
+        idempotent: false,
         action: {
           (r: DeleteFileStoreDataProfileRequest, o: GoogleCloudGax.RequestOptions) async throws
             -> Void in
@@ -704,14 +696,14 @@ extension Clients {
 
     public func getTableDataProfile(
       request: GetTableDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.TableDataProfile {
+    ) async throws -> GoogleCloudDLPV2.TableDataProfile {
       try await self._intercept(
         request: request,
         options: options,
-        name: "getTableDataProfile",
+        idempotent: true,
         action: {
           (r: GetTableDataProfileRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.TableDataProfile
+            -> GoogleCloudDLPV2.TableDataProfile
           in
           return try await self.inner.getTableDataProfile(request: r, options: o)
         })
@@ -719,14 +711,14 @@ extension Clients {
 
     public func getColumnDataProfile(
       request: GetColumnDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ColumnDataProfile {
+    ) async throws -> GoogleCloudDLPV2.ColumnDataProfile {
       try await self._intercept(
         request: request,
         options: options,
-        name: "getColumnDataProfile",
+        idempotent: true,
         action: {
           (r: GetColumnDataProfileRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.ColumnDataProfile
+            -> GoogleCloudDLPV2.ColumnDataProfile
           in
           return try await self.inner.getColumnDataProfile(request: r, options: o)
         })
@@ -738,7 +730,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        name: "deleteTableDataProfile",
+        idempotent: false,
         action: {
           (r: DeleteTableDataProfileRequest, o: GoogleCloudGax.RequestOptions) async throws -> Void
           in
@@ -748,14 +740,14 @@ extension Clients {
 
     public func hybridInspectDlpJob(
       request: HybridInspectDlpJobRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse {
+    ) async throws -> GoogleCloudDLPV2.HybridInspectResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "hybridInspectDlpJob",
+        idempotent: false,
         action: {
           (r: HybridInspectDlpJobRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.HybridInspectResponse
+            -> GoogleCloudDLPV2.HybridInspectResponse
           in
           return try await self.inner.hybridInspectDlpJob(request: r, options: o)
         })
@@ -767,7 +759,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        name: "finishDlpJob",
+        idempotent: false,
         action: { (r: FinishDlpJobRequest, o: GoogleCloudGax.RequestOptions) async throws -> Void in
           return try await self.inner.finishDlpJob(request: r, options: o)
         })
@@ -775,14 +767,14 @@ extension Clients {
 
     public func createConnection(
       request: CreateConnectionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.Connection {
+    ) async throws -> GoogleCloudDLPV2.Connection {
       try await self._intercept(
         request: request,
         options: options,
-        name: "createConnection",
+        idempotent: false,
         action: {
           (r: CreateConnectionRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.Connection
+            -> GoogleCloudDLPV2.Connection
           in
           return try await self.inner.createConnection(request: r, options: o)
         })
@@ -790,14 +782,14 @@ extension Clients {
 
     public func getConnection(
       request: GetConnectionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.Connection {
+    ) async throws -> GoogleCloudDLPV2.Connection {
       try await self._intercept(
         request: request,
         options: options,
-        name: "getConnection",
+        idempotent: true,
         action: {
           (r: GetConnectionRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.Connection
+            -> GoogleCloudDLPV2.Connection
           in
           return try await self.inner.getConnection(request: r, options: o)
         })
@@ -805,14 +797,14 @@ extension Clients {
 
     public func listConnections(
       request: ListConnectionsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListConnectionsResponse {
+    ) async throws -> GoogleCloudDLPV2.ListConnectionsResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "listConnections",
+        idempotent: true,
         action: {
           (r: ListConnectionsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.ListConnectionsResponse
+            -> GoogleCloudDLPV2.ListConnectionsResponse
           in
           return try await self.inner.listConnections(request: r, options: o)
         })
@@ -820,14 +812,14 @@ extension Clients {
 
     public func searchConnections(
       request: SearchConnectionsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.SearchConnectionsResponse {
+    ) async throws -> GoogleCloudDLPV2.SearchConnectionsResponse {
       try await self._intercept(
         request: request,
         options: options,
-        name: "searchConnections",
+        idempotent: true,
         action: {
           (r: SearchConnectionsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.SearchConnectionsResponse
+            -> GoogleCloudDLPV2.SearchConnectionsResponse
           in
           return try await self.inner.searchConnections(request: r, options: o)
         })
@@ -839,7 +831,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        name: "deleteConnection",
+        idempotent: false,
         action: {
           (r: DeleteConnectionRequest, o: GoogleCloudGax.RequestOptions) async throws -> Void in
           return try await self.inner.deleteConnection(request: r, options: o)
@@ -848,14 +840,14 @@ extension Clients {
 
     public func updateConnection(
       request: UpdateConnectionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.Connection {
+    ) async throws -> GoogleCloudDLPV2.Connection {
       try await self._intercept(
         request: request,
         options: options,
-        name: "updateConnection",
+        idempotent: false,
         action: {
           (r: UpdateConnectionRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GooglePrivacyDlpV2.Connection
+            -> GoogleCloudDLPV2.Connection
           in
           return try await self.inner.updateConnection(request: r, options: o)
         })

@@ -25,39 +25,39 @@ extension Clients {
   protocol DlpServiceStub {
     func inspectContent(
       request: InspectContentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectContentResponse
+    ) async throws -> GoogleCloudDLPV2.InspectContentResponse
 
     func redactImage(
       request: RedactImageRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.RedactImageResponse
+    ) async throws -> GoogleCloudDLPV2.RedactImageResponse
 
     func deidentifyContent(
       request: DeidentifyContentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyContentResponse
+    ) async throws -> GoogleCloudDLPV2.DeidentifyContentResponse
 
     func reidentifyContent(
       request: ReidentifyContentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ReidentifyContentResponse
+    ) async throws -> GoogleCloudDLPV2.ReidentifyContentResponse
 
     func listInfoTypes(
       request: ListInfoTypesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListInfoTypesResponse
+    ) async throws -> GoogleCloudDLPV2.ListInfoTypesResponse
 
     func createInspectTemplate(
       request: CreateInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectTemplate
+    ) async throws -> GoogleCloudDLPV2.InspectTemplate
 
     func updateInspectTemplate(
       request: UpdateInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectTemplate
+    ) async throws -> GoogleCloudDLPV2.InspectTemplate
 
     func getInspectTemplate(
       request: GetInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectTemplate
+    ) async throws -> GoogleCloudDLPV2.InspectTemplate
 
     func listInspectTemplates(
       request: ListInspectTemplatesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListInspectTemplatesResponse
+    ) async throws -> GoogleCloudDLPV2.ListInspectTemplatesResponse
 
     func deleteInspectTemplate(
       request: DeleteInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
@@ -65,19 +65,19 @@ extension Clients {
 
     func createDeidentifyTemplate(
       request: CreateDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate
+    ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate
 
     func updateDeidentifyTemplate(
       request: UpdateDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate
+    ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate
 
     func getDeidentifyTemplate(
       request: GetDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate
+    ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate
 
     func listDeidentifyTemplates(
       request: ListDeidentifyTemplatesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListDeidentifyTemplatesResponse
+    ) async throws -> GoogleCloudDLPV2.ListDeidentifyTemplatesResponse
 
     func deleteDeidentifyTemplate(
       request: DeleteDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
@@ -85,23 +85,23 @@ extension Clients {
 
     func createJobTrigger(
       request: CreateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.JobTrigger
+    ) async throws -> GoogleCloudDLPV2.JobTrigger
 
     func updateJobTrigger(
       request: UpdateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.JobTrigger
+    ) async throws -> GoogleCloudDLPV2.JobTrigger
 
     func hybridInspectJobTrigger(
       request: HybridInspectJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse
+    ) async throws -> GoogleCloudDLPV2.HybridInspectResponse
 
     func getJobTrigger(
       request: GetJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.JobTrigger
+    ) async throws -> GoogleCloudDLPV2.JobTrigger
 
     func listJobTriggers(
       request: ListJobTriggersRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListJobTriggersResponse
+    ) async throws -> GoogleCloudDLPV2.ListJobTriggersResponse
 
     func deleteJobTrigger(
       request: DeleteJobTriggerRequest, options: GoogleCloudGax.RequestOptions
@@ -109,23 +109,23 @@ extension Clients {
 
     func activateJobTrigger(
       request: ActivateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DlpJob
+    ) async throws -> GoogleCloudDLPV2.DlpJob
 
     func createDiscoveryConfig(
       request: CreateDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig
+    ) async throws -> GoogleCloudDLPV2.DiscoveryConfig
 
     func updateDiscoveryConfig(
       request: UpdateDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig
+    ) async throws -> GoogleCloudDLPV2.DiscoveryConfig
 
     func getDiscoveryConfig(
       request: GetDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig
+    ) async throws -> GoogleCloudDLPV2.DiscoveryConfig
 
     func listDiscoveryConfigs(
       request: ListDiscoveryConfigsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListDiscoveryConfigsResponse
+    ) async throws -> GoogleCloudDLPV2.ListDiscoveryConfigsResponse
 
     func deleteDiscoveryConfig(
       request: DeleteDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
@@ -133,15 +133,15 @@ extension Clients {
 
     func createDlpJob(
       request: CreateDlpJobRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DlpJob
+    ) async throws -> GoogleCloudDLPV2.DlpJob
 
     func listDlpJobs(
       request: ListDlpJobsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListDlpJobsResponse
+    ) async throws -> GoogleCloudDLPV2.ListDlpJobsResponse
 
     func getDlpJob(
       request: GetDlpJobRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DlpJob
+    ) async throws -> GoogleCloudDLPV2.DlpJob
 
     func deleteDlpJob(
       request: DeleteDlpJobRequest, options: GoogleCloudGax.RequestOptions
@@ -153,19 +153,19 @@ extension Clients {
 
     func createStoredInfoType(
       request: CreateStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.StoredInfoType
+    ) async throws -> GoogleCloudDLPV2.StoredInfoType
 
     func updateStoredInfoType(
       request: UpdateStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.StoredInfoType
+    ) async throws -> GoogleCloudDLPV2.StoredInfoType
 
     func getStoredInfoType(
       request: GetStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.StoredInfoType
+    ) async throws -> GoogleCloudDLPV2.StoredInfoType
 
     func listStoredInfoTypes(
       request: ListStoredInfoTypesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListStoredInfoTypesResponse
+    ) async throws -> GoogleCloudDLPV2.ListStoredInfoTypesResponse
 
     func deleteStoredInfoType(
       request: DeleteStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
@@ -173,27 +173,27 @@ extension Clients {
 
     func listProjectDataProfiles(
       request: ListProjectDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListProjectDataProfilesResponse
+    ) async throws -> GoogleCloudDLPV2.ListProjectDataProfilesResponse
 
     func listTableDataProfiles(
       request: ListTableDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListTableDataProfilesResponse
+    ) async throws -> GoogleCloudDLPV2.ListTableDataProfilesResponse
 
     func listColumnDataProfiles(
       request: ListColumnDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListColumnDataProfilesResponse
+    ) async throws -> GoogleCloudDLPV2.ListColumnDataProfilesResponse
 
     func getProjectDataProfile(
       request: GetProjectDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ProjectDataProfile
+    ) async throws -> GoogleCloudDLPV2.ProjectDataProfile
 
     func listFileStoreDataProfiles(
       request: ListFileStoreDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListFileStoreDataProfilesResponse
+    ) async throws -> GoogleCloudDLPV2.ListFileStoreDataProfilesResponse
 
     func getFileStoreDataProfile(
       request: GetFileStoreDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.FileStoreDataProfile
+    ) async throws -> GoogleCloudDLPV2.FileStoreDataProfile
 
     func deleteFileStoreDataProfile(
       request: DeleteFileStoreDataProfileRequest, options: GoogleCloudGax.RequestOptions
@@ -201,11 +201,11 @@ extension Clients {
 
     func getTableDataProfile(
       request: GetTableDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.TableDataProfile
+    ) async throws -> GoogleCloudDLPV2.TableDataProfile
 
     func getColumnDataProfile(
       request: GetColumnDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ColumnDataProfile
+    ) async throws -> GoogleCloudDLPV2.ColumnDataProfile
 
     func deleteTableDataProfile(
       request: DeleteTableDataProfileRequest, options: GoogleCloudGax.RequestOptions
@@ -213,7 +213,7 @@ extension Clients {
 
     func hybridInspectDlpJob(
       request: HybridInspectDlpJobRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse
+    ) async throws -> GoogleCloudDLPV2.HybridInspectResponse
 
     func finishDlpJob(
       request: FinishDlpJobRequest, options: GoogleCloudGax.RequestOptions
@@ -221,19 +221,19 @@ extension Clients {
 
     func createConnection(
       request: CreateConnectionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.Connection
+    ) async throws -> GoogleCloudDLPV2.Connection
 
     func getConnection(
       request: GetConnectionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.Connection
+    ) async throws -> GoogleCloudDLPV2.Connection
 
     func listConnections(
       request: ListConnectionsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListConnectionsResponse
+    ) async throws -> GoogleCloudDLPV2.ListConnectionsResponse
 
     func searchConnections(
       request: SearchConnectionsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.SearchConnectionsResponse
+    ) async throws -> GoogleCloudDLPV2.SearchConnectionsResponse
 
     func deleteConnection(
       request: DeleteConnectionRequest, options: GoogleCloudGax.RequestOptions
@@ -241,7 +241,7 @@ extension Clients {
 
     func updateConnection(
       request: UpdateConnectionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.Connection
+    ) async throws -> GoogleCloudDLPV2.Connection
   }
 
   class DlpServiceTransport: DlpServiceStub {
@@ -254,7 +254,7 @@ extension Clients {
 
     public func inspectContent(
       request: InspectContentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectContentResponse {
+    ) async throws -> GoogleCloudDLPV2.InspectContentResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -271,12 +271,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.InspectContentResponse.self, from: data)
+        GoogleCloudDLPV2.InspectContentResponse.self, from: data)
     }
 
     public func redactImage(
       request: RedactImageRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.RedactImageResponse {
+    ) async throws -> GoogleCloudDLPV2.RedactImageResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -293,12 +293,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.RedactImageResponse.self, from: data)
+        GoogleCloudDLPV2.RedactImageResponse.self, from: data)
     }
 
     public func deidentifyContent(
       request: DeidentifyContentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyContentResponse {
+    ) async throws -> GoogleCloudDLPV2.DeidentifyContentResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -315,12 +315,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.DeidentifyContentResponse.self, from: data)
+        GoogleCloudDLPV2.DeidentifyContentResponse.self, from: data)
     }
 
     public func reidentifyContent(
       request: ReidentifyContentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ReidentifyContentResponse {
+    ) async throws -> GoogleCloudDLPV2.ReidentifyContentResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -337,12 +337,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.ReidentifyContentResponse.self, from: data)
+        GoogleCloudDLPV2.ReidentifyContentResponse.self, from: data)
     }
 
     public func listInfoTypes(
       request: ListInfoTypesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListInfoTypesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListInfoTypesResponse {
       let path = try { () throws -> Swift.String in
         return "/v2/infoTypes"
       }()
@@ -359,12 +359,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.ListInfoTypesResponse.self, from: data)
+        GoogleCloudDLPV2.ListInfoTypesResponse.self, from: data)
     }
 
     public func createInspectTemplate(
       request: CreateInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectTemplate {
+    ) async throws -> GoogleCloudDLPV2.InspectTemplate {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -381,12 +381,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.InspectTemplate.self, from: data)
+        GoogleCloudDLPV2.InspectTemplate.self, from: data)
     }
 
     public func updateInspectTemplate(
       request: UpdateInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectTemplate {
+    ) async throws -> GoogleCloudDLPV2.InspectTemplate {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -403,12 +403,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.InspectTemplate.self, from: data)
+        GoogleCloudDLPV2.InspectTemplate.self, from: data)
     }
 
     public func getInspectTemplate(
       request: GetInspectTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.InspectTemplate {
+    ) async throws -> GoogleCloudDLPV2.InspectTemplate {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -423,12 +423,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.InspectTemplate.self, from: data)
+        GoogleCloudDLPV2.InspectTemplate.self, from: data)
     }
 
     public func listInspectTemplates(
       request: ListInspectTemplatesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListInspectTemplatesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListInspectTemplatesResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -448,7 +448,7 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.ListInspectTemplatesResponse.self, from: data)
+        GoogleCloudDLPV2.ListInspectTemplatesResponse.self, from: data)
     }
 
     public func deleteInspectTemplate(
@@ -471,7 +471,7 @@ extension Clients {
 
     public func createDeidentifyTemplate(
       request: CreateDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate {
+    ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -488,12 +488,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.DeidentifyTemplate.self, from: data)
+        GoogleCloudDLPV2.DeidentifyTemplate.self, from: data)
     }
 
     public func updateDeidentifyTemplate(
       request: UpdateDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate {
+    ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -510,12 +510,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.DeidentifyTemplate.self, from: data)
+        GoogleCloudDLPV2.DeidentifyTemplate.self, from: data)
     }
 
     public func getDeidentifyTemplate(
       request: GetDeidentifyTemplateRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DeidentifyTemplate {
+    ) async throws -> GoogleCloudDLPV2.DeidentifyTemplate {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -530,12 +530,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.DeidentifyTemplate.self, from: data)
+        GoogleCloudDLPV2.DeidentifyTemplate.self, from: data)
     }
 
     public func listDeidentifyTemplates(
       request: ListDeidentifyTemplatesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListDeidentifyTemplatesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListDeidentifyTemplatesResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -555,7 +555,7 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.ListDeidentifyTemplatesResponse.self, from: data)
+        GoogleCloudDLPV2.ListDeidentifyTemplatesResponse.self, from: data)
     }
 
     public func deleteDeidentifyTemplate(
@@ -578,7 +578,7 @@ extension Clients {
 
     public func createJobTrigger(
       request: CreateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.JobTrigger {
+    ) async throws -> GoogleCloudDLPV2.JobTrigger {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -595,12 +595,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.JobTrigger.self, from: data)
+        GoogleCloudDLPV2.JobTrigger.self, from: data)
     }
 
     public func updateJobTrigger(
       request: UpdateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.JobTrigger {
+    ) async throws -> GoogleCloudDLPV2.JobTrigger {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -617,12 +617,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.JobTrigger.self, from: data)
+        GoogleCloudDLPV2.JobTrigger.self, from: data)
     }
 
     public func hybridInspectJobTrigger(
       request: HybridInspectJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse {
+    ) async throws -> GoogleCloudDLPV2.HybridInspectResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -639,12 +639,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.HybridInspectResponse.self, from: data)
+        GoogleCloudDLPV2.HybridInspectResponse.self, from: data)
     }
 
     public func getJobTrigger(
       request: GetJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.JobTrigger {
+    ) async throws -> GoogleCloudDLPV2.JobTrigger {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -659,12 +659,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.JobTrigger.self, from: data)
+        GoogleCloudDLPV2.JobTrigger.self, from: data)
     }
 
     public func listJobTriggers(
       request: ListJobTriggersRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListJobTriggersResponse {
+    ) async throws -> GoogleCloudDLPV2.ListJobTriggersResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -686,7 +686,7 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.ListJobTriggersResponse.self, from: data)
+        GoogleCloudDLPV2.ListJobTriggersResponse.self, from: data)
     }
 
     public func deleteJobTrigger(
@@ -709,7 +709,7 @@ extension Clients {
 
     public func activateJobTrigger(
       request: ActivateJobTriggerRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DlpJob {
+    ) async throws -> GoogleCloudDLPV2.DlpJob {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -726,12 +726,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.DlpJob.self, from: data)
+        GoogleCloudDLPV2.DlpJob.self, from: data)
     }
 
     public func createDiscoveryConfig(
       request: CreateDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig {
+    ) async throws -> GoogleCloudDLPV2.DiscoveryConfig {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -748,12 +748,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.DiscoveryConfig.self, from: data)
+        GoogleCloudDLPV2.DiscoveryConfig.self, from: data)
     }
 
     public func updateDiscoveryConfig(
       request: UpdateDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig {
+    ) async throws -> GoogleCloudDLPV2.DiscoveryConfig {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -770,12 +770,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.DiscoveryConfig.self, from: data)
+        GoogleCloudDLPV2.DiscoveryConfig.self, from: data)
     }
 
     public func getDiscoveryConfig(
       request: GetDiscoveryConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DiscoveryConfig {
+    ) async throws -> GoogleCloudDLPV2.DiscoveryConfig {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -790,12 +790,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.DiscoveryConfig.self, from: data)
+        GoogleCloudDLPV2.DiscoveryConfig.self, from: data)
     }
 
     public func listDiscoveryConfigs(
       request: ListDiscoveryConfigsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListDiscoveryConfigsResponse {
+    ) async throws -> GoogleCloudDLPV2.ListDiscoveryConfigsResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -814,7 +814,7 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.ListDiscoveryConfigsResponse.self, from: data)
+        GoogleCloudDLPV2.ListDiscoveryConfigsResponse.self, from: data)
     }
 
     public func deleteDiscoveryConfig(
@@ -837,7 +837,7 @@ extension Clients {
 
     public func createDlpJob(
       request: CreateDlpJobRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DlpJob {
+    ) async throws -> GoogleCloudDLPV2.DlpJob {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -854,12 +854,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.DlpJob.self, from: data)
+        GoogleCloudDLPV2.DlpJob.self, from: data)
     }
 
     public func listDlpJobs(
       request: ListDlpJobsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListDlpJobsResponse {
+    ) async throws -> GoogleCloudDLPV2.ListDlpJobsResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -881,12 +881,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.ListDlpJobsResponse.self, from: data)
+        GoogleCloudDLPV2.ListDlpJobsResponse.self, from: data)
     }
 
     public func getDlpJob(
       request: GetDlpJobRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.DlpJob {
+    ) async throws -> GoogleCloudDLPV2.DlpJob {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -901,7 +901,7 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.DlpJob.self, from: data)
+        GoogleCloudDLPV2.DlpJob.self, from: data)
     }
 
     public func deleteDlpJob(
@@ -944,7 +944,7 @@ extension Clients {
 
     public func createStoredInfoType(
       request: CreateStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.StoredInfoType {
+    ) async throws -> GoogleCloudDLPV2.StoredInfoType {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -961,12 +961,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.StoredInfoType.self, from: data)
+        GoogleCloudDLPV2.StoredInfoType.self, from: data)
     }
 
     public func updateStoredInfoType(
       request: UpdateStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.StoredInfoType {
+    ) async throws -> GoogleCloudDLPV2.StoredInfoType {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -983,12 +983,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.StoredInfoType.self, from: data)
+        GoogleCloudDLPV2.StoredInfoType.self, from: data)
     }
 
     public func getStoredInfoType(
       request: GetStoredInfoTypeRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.StoredInfoType {
+    ) async throws -> GoogleCloudDLPV2.StoredInfoType {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -1003,12 +1003,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.StoredInfoType.self, from: data)
+        GoogleCloudDLPV2.StoredInfoType.self, from: data)
     }
 
     public func listStoredInfoTypes(
       request: ListStoredInfoTypesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListStoredInfoTypesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListStoredInfoTypesResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -1028,7 +1028,7 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.ListStoredInfoTypesResponse.self, from: data)
+        GoogleCloudDLPV2.ListStoredInfoTypesResponse.self, from: data)
     }
 
     public func deleteStoredInfoType(
@@ -1051,7 +1051,7 @@ extension Clients {
 
     public func listProjectDataProfiles(
       request: ListProjectDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListProjectDataProfilesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListProjectDataProfilesResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -1071,12 +1071,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.ListProjectDataProfilesResponse.self, from: data)
+        GoogleCloudDLPV2.ListProjectDataProfilesResponse.self, from: data)
     }
 
     public func listTableDataProfiles(
       request: ListTableDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListTableDataProfilesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListTableDataProfilesResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -1096,12 +1096,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.ListTableDataProfilesResponse.self, from: data)
+        GoogleCloudDLPV2.ListTableDataProfilesResponse.self, from: data)
     }
 
     public func listColumnDataProfiles(
       request: ListColumnDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListColumnDataProfilesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListColumnDataProfilesResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -1121,12 +1121,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.ListColumnDataProfilesResponse.self, from: data)
+        GoogleCloudDLPV2.ListColumnDataProfilesResponse.self, from: data)
     }
 
     public func getProjectDataProfile(
       request: GetProjectDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ProjectDataProfile {
+    ) async throws -> GoogleCloudDLPV2.ProjectDataProfile {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -1141,12 +1141,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.ProjectDataProfile.self, from: data)
+        GoogleCloudDLPV2.ProjectDataProfile.self, from: data)
     }
 
     public func listFileStoreDataProfiles(
       request: ListFileStoreDataProfilesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListFileStoreDataProfilesResponse {
+    ) async throws -> GoogleCloudDLPV2.ListFileStoreDataProfilesResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -1166,12 +1166,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.ListFileStoreDataProfilesResponse.self, from: data)
+        GoogleCloudDLPV2.ListFileStoreDataProfilesResponse.self, from: data)
     }
 
     public func getFileStoreDataProfile(
       request: GetFileStoreDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.FileStoreDataProfile {
+    ) async throws -> GoogleCloudDLPV2.FileStoreDataProfile {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -1186,7 +1186,7 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.FileStoreDataProfile.self, from: data)
+        GoogleCloudDLPV2.FileStoreDataProfile.self, from: data)
     }
 
     public func deleteFileStoreDataProfile(
@@ -1209,7 +1209,7 @@ extension Clients {
 
     public func getTableDataProfile(
       request: GetTableDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.TableDataProfile {
+    ) async throws -> GoogleCloudDLPV2.TableDataProfile {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -1224,12 +1224,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.TableDataProfile.self, from: data)
+        GoogleCloudDLPV2.TableDataProfile.self, from: data)
     }
 
     public func getColumnDataProfile(
       request: GetColumnDataProfileRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ColumnDataProfile {
+    ) async throws -> GoogleCloudDLPV2.ColumnDataProfile {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -1244,7 +1244,7 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.ColumnDataProfile.self, from: data)
+        GoogleCloudDLPV2.ColumnDataProfile.self, from: data)
     }
 
     public func deleteTableDataProfile(
@@ -1267,7 +1267,7 @@ extension Clients {
 
     public func hybridInspectDlpJob(
       request: HybridInspectDlpJobRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.HybridInspectResponse {
+    ) async throws -> GoogleCloudDLPV2.HybridInspectResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -1284,7 +1284,7 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.HybridInspectResponse.self, from: data)
+        GoogleCloudDLPV2.HybridInspectResponse.self, from: data)
     }
 
     public func finishDlpJob(
@@ -1309,7 +1309,7 @@ extension Clients {
 
     public func createConnection(
       request: CreateConnectionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.Connection {
+    ) async throws -> GoogleCloudDLPV2.Connection {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -1326,12 +1326,12 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.Connection.self, from: data)
+        GoogleCloudDLPV2.Connection.self, from: data)
     }
 
     public func getConnection(
       request: GetConnectionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.Connection {
+    ) async throws -> GoogleCloudDLPV2.Connection {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -1346,12 +1346,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.Connection.self, from: data)
+        GoogleCloudDLPV2.Connection.self, from: data)
     }
 
     public func listConnections(
       request: ListConnectionsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.ListConnectionsResponse {
+    ) async throws -> GoogleCloudDLPV2.ListConnectionsResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -1370,12 +1370,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.ListConnectionsResponse.self, from: data)
+        GoogleCloudDLPV2.ListConnectionsResponse.self, from: data)
     }
 
     public func searchConnections(
       request: SearchConnectionsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.SearchConnectionsResponse {
+    ) async throws -> GoogleCloudDLPV2.SearchConnectionsResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -1394,7 +1394,7 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.SearchConnectionsResponse.self, from: data)
+        GoogleCloudDLPV2.SearchConnectionsResponse.self, from: data)
     }
 
     public func deleteConnection(
@@ -1417,7 +1417,7 @@ extension Clients {
 
     public func updateConnection(
       request: UpdateConnectionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GooglePrivacyDlpV2.Connection {
+    ) async throws -> GoogleCloudDLPV2.Connection {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -1434,7 +1434,7 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GooglePrivacyDlpV2.Connection.self, from: data)
+        GoogleCloudDLPV2.Connection.self, from: data)
     }
   }
 }
