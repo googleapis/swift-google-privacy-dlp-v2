@@ -17,22 +17,21 @@
 import Foundation
 @_spi(GoogleCloudInternal) import GoogleCloudWKT
 
-/// Pseudonymization method that generates surrogates via cryptographic hashing.
-/// Uses SHA-256.
-/// The key size must be either 32 or 64 bytes.
-/// Outputs a base64 encoded representation of the hashed output
-/// (for example, L7k0BHmF1ha5U3NfGykjro4xWi1MPVQPjhMAZbSV9mM=).
-/// Currently, only string and integer values can be hashed.
-/// See
-/// https://docs.cloud.google.com/sensitive-data-protection/docs/pseudonymization
-/// to learn more.
-public struct CryptoHashConfig: Codable, Equatable, GoogleCloudWKT._AnyPackable,
+/// Request message for UpdateContentPolicy.
+public struct UpdateContentPolicyRequest: Codable, Equatable, GoogleCloudWKT._AnyPackable,
   Sendable
 {
-  /// The key used by the hash function.
-  public var cryptoKey: CryptoKey? = nil
+  /// Required. Resource name in the format:
+  /// `projects/{project}/locations/{location}/contentPolicies/{content_policy}`.
+  public var name: Swift.String = Swift.String()
 
-  /// Initialize a new instance of `CryptoHashConfig`.
+  /// Required. The content_policy with new values for the relevant fields.
+  public var contentPolicy: ContentPolicy? = nil
+
+  /// Optional. Mask to control which fields get updated.
+  public var updateMask: GoogleCloudWKT.FieldMask? = nil
+
+  /// Initialize a new instance of `UpdateContentPolicyRequest`.
   public init() {}
 
   /// Use `config` to return a new instance of this object, with some fields updated.
@@ -40,7 +39,7 @@ public struct CryptoHashConfig: Codable, Equatable, GoogleCloudWKT._AnyPackable,
   /// Commonly used to initialize the value, for example:
   ///
   /// ```
-  /// let value = CryptoHashConfig().with { $0.cryptoKey = ... }
+  /// let value = UpdateContentPolicyRequest().with { $0.name = ... }
   /// ```
   public func with(_ config: (inout Self) throws -> Swift.Void) rethrows -> Self {
     var copy = self
@@ -49,7 +48,7 @@ public struct CryptoHashConfig: Codable, Equatable, GoogleCloudWKT._AnyPackable,
   }
 
   public static var _anyTypeUrl: Swift.String {
-    return "type.googleapis.com/google.privacy.dlp.v2.CryptoHashConfig"
+    return "type.googleapis.com/google.privacy.dlp.v2.UpdateContentPolicyRequest"
   }
   public init(fromAny any: GoogleCloudWKT.`Any`) throws {
     self = try GoogleCloudWKT._slowAnyDeserialize(Self.self, from: any)

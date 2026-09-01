@@ -17,22 +17,31 @@
 import Foundation
 @_spi(GoogleCloudInternal) import GoogleCloudWKT
 
-/// Pseudonymization method that generates surrogates via cryptographic hashing.
-/// Uses SHA-256.
-/// The key size must be either 32 or 64 bytes.
-/// Outputs a base64 encoded representation of the hashed output
-/// (for example, L7k0BHmF1ha5U3NfGykjro4xWi1MPVQPjhMAZbSV9mM=).
-/// Currently, only string and integer values can be hashed.
-/// See
-/// https://docs.cloud.google.com/sensitive-data-protection/docs/pseudonymization
-/// to learn more.
-public struct CryptoHashConfig: Codable, Equatable, GoogleCloudWKT._AnyPackable,
+/// Request message for CreateContentPolicy.
+public struct CreateContentPolicyRequest: Codable, Equatable, GoogleCloudWKT._AnyPackable,
   Sendable
 {
-  /// The key used by the hash function.
-  public var cryptoKey: CryptoKey? = nil
+  /// Required. Parent resource name.
+  ///
+  /// The format of this value varies depending on the scope of the request
+  /// (project):
+  ///
+  /// + Projects scope:
+  ///   `projects/{project_id}/locations/{location_id}`
+  public var parent: Swift.String = Swift.String()
 
-  /// Initialize a new instance of `CryptoHashConfig`.
+  /// Required. The content_policy resource.
+  public var contentPolicy: ContentPolicy? = nil
+
+  /// Optional. The content policy ID can contain uppercase and lowercase
+  /// letters, numbers, and hyphens; that is, it must match the regular
+  /// expression:
+  ///   `[a-zA-Z\d-_]+`.
+  /// The maximum length is 100 characters. If empty, the system will generate
+  /// a random id.
+  public var contentPolicyId: Swift.String = Swift.String()
+
+  /// Initialize a new instance of `CreateContentPolicyRequest`.
   public init() {}
 
   /// Use `config` to return a new instance of this object, with some fields updated.
@@ -40,7 +49,7 @@ public struct CryptoHashConfig: Codable, Equatable, GoogleCloudWKT._AnyPackable,
   /// Commonly used to initialize the value, for example:
   ///
   /// ```
-  /// let value = CryptoHashConfig().with { $0.cryptoKey = ... }
+  /// let value = CreateContentPolicyRequest().with { $0.parent = ... }
   /// ```
   public func with(_ config: (inout Self) throws -> Swift.Void) rethrows -> Self {
     var copy = self
@@ -49,7 +58,7 @@ public struct CryptoHashConfig: Codable, Equatable, GoogleCloudWKT._AnyPackable,
   }
 
   public static var _anyTypeUrl: Swift.String {
-    return "type.googleapis.com/google.privacy.dlp.v2.CryptoHashConfig"
+    return "type.googleapis.com/google.privacy.dlp.v2.CreateContentPolicyRequest"
   }
   public init(fromAny any: GoogleCloudWKT.`Any`) throws {
     self = try GoogleCloudWKT._slowAnyDeserialize(Self.self, from: any)

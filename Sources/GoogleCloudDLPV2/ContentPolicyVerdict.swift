@@ -16,34 +16,17 @@
 
 import Foundation
 
-/// Coarse-grained confidence level of how well a particular finding
-/// satisfies the criteria to match a particular infoType.
-///
-/// Likelihood is calculated based on the number of signals a
-/// finding has that implies that the finding matches the infoType. For
-/// example, a string that has an '@' and a '.com' is more likely to be a
-/// match for an email address than a string that only has an '@'.
-///
-/// In general, the highest likelihood level has the strongest signals that
-/// indicate a match. That is, a finding with a high likelihood has a low chance
-/// of being a false positive.
-///
-/// For more information about each likelihood level
-/// and how likelihood works, see [Match
-/// likelihood](https://docs.cloud.google.com/sensitive-data-protection/docs/likelihood).
-public enum Likelihood: Codable, Equatable, Sendable {
-  /// Default value; same as POSSIBLE.
+/// Possible results of applying a content policy. This may expand to include
+/// additional result types in the future.
+public enum ContentPolicyVerdict: Codable, Equatable, Sendable {
+  /// Not used.
   case unspecified
-  /// Highest chance of a false positive.
-  case veryUnlikely
-  /// High chance of a false positive.
-  case unlikely
-  /// Some matching signals. The default value.
-  case possible
-  /// Low chance of a false positive.
-  case likely
-  /// Confidence level is high. Lowest chance of a false positive.
-  case veryLikely
+  /// The policy allows the provided content to be used.
+  case allow
+  /// The policy prevents the provided content from being used. This should
+  /// result in a blocked file upload, exclusion from training dataset, or
+  /// other similar block action. (specific action will depend on the caller).
+  case block
   /// Encodes an unknown integer value.
   ///
   /// The most common cause for an unknown values is for the service to send
@@ -67,11 +50,8 @@ public enum Likelihood: Codable, Equatable, Sendable {
   public var intValue: Int? {
     switch self {
     case .unspecified: return 0
-    case .veryUnlikely: return 1
-    case .unlikely: return 2
-    case .possible: return 3
-    case .likely: return 4
-    case .veryLikely: return 5
+    case .allow: return 1
+    case .block: return 2
     case .unknownIntValue(let v): return v
     case .unknownStringValue: return nil
     }
@@ -82,12 +62,9 @@ public enum Likelihood: Codable, Equatable, Sendable {
   /// If the enumeration was initialized with an unknown integer value, this returns `nil`.
   public var stringValue: Swift.String? {
     switch self {
-    case .unspecified: return "LIKELIHOOD_UNSPECIFIED"
-    case .veryUnlikely: return "VERY_UNLIKELY"
-    case .unlikely: return "UNLIKELY"
-    case .possible: return "POSSIBLE"
-    case .likely: return "LIKELY"
-    case .veryLikely: return "VERY_LIKELY"
+    case .unspecified: return "CONTENT_POLICY_VERDICT_UNSPECIFIED"
+    case .allow: return "ALLOW"
+    case .block: return "BLOCK"
     case .unknownIntValue: return nil
     case .unknownStringValue(let v): return v
     }
@@ -95,30 +72,24 @@ public enum Likelihood: Codable, Equatable, Sendable {
 
   /// Initialize from a string value.
   ///
-  /// If the value is unknown, this initializes to [`unknownStringValue`](doc:Likelihood/unknownStringValue(_:)).
+  /// If the value is unknown, this initializes to [`unknownStringValue`](doc:ContentPolicyVerdict/unknownStringValue(_:)).
   public init(stringValue: Swift.String) {
     switch stringValue {
-    case "LIKELIHOOD_UNSPECIFIED": self = .unspecified
-    case "VERY_UNLIKELY": self = .veryUnlikely
-    case "UNLIKELY": self = .unlikely
-    case "POSSIBLE": self = .possible
-    case "LIKELY": self = .likely
-    case "VERY_LIKELY": self = .veryLikely
+    case "CONTENT_POLICY_VERDICT_UNSPECIFIED": self = .unspecified
+    case "ALLOW": self = .allow
+    case "BLOCK": self = .block
     default: self = .unknownStringValue(stringValue)
     }
   }
 
   /// Initialize from an integer value.
   ///
-  /// If the value is unknown, this initializes to [`unknownIntValue`](doc:Likelihood/unknownIntValue(_:)).
+  /// If the value is unknown, this initializes to [`unknownIntValue`](doc:ContentPolicyVerdict/unknownIntValue(_:)).
   public init(intValue: Int) {
     switch intValue {
     case 0: self = .unspecified
-    case 1: self = .veryUnlikely
-    case 2: self = .unlikely
-    case 3: self = .possible
-    case 4: self = .likely
-    case 5: self = .veryLikely
+    case 1: self = .allow
+    case 2: self = .block
     default: self = .unknownIntValue(intValue)
     }
   }
@@ -145,11 +116,8 @@ public enum Likelihood: Codable, Equatable, Sendable {
     var container = encoder.singleValueContainer()
     switch self {
     case .unspecified: return try container.encode(0)
-    case .veryUnlikely: return try container.encode(1)
-    case .unlikely: return try container.encode(2)
-    case .possible: return try container.encode(3)
-    case .likely: return try container.encode(4)
-    case .veryLikely: return try container.encode(5)
+    case .allow: return try container.encode(1)
+    case .block: return try container.encode(2)
     case .unknownIntValue(let v): return try container.encode(v)
     case .unknownStringValue(let v): return try container.encode(v)
     }
